@@ -2,11 +2,13 @@
 package challenge.week1;
 
 import java.util.Scanner;
+import mainpackage.Display;
 
 public class Level3Wednesday 
 {
 
     public Level3Wednesday() {
+        new Display("Week 1: Wednesday - Level 3 Problem", "Week1Wednesday.png");
         int[][] grid = createGrid();
         int rotationcount = 0;
         while (check(grid) == false) {
