@@ -39,10 +39,26 @@ public class MainClass
                     DAY_SELECTIONS, DAY_SELECTIONS[0]).toString();
                 if      (choice == null)                   System.exit(0);
                 else if (choice.equals(DAY_SELECTIONS[0])) System.exit(0);
-                else if (choice.equals(DAY_SELECTIONS[1])) new Level1Monday();
-                else if (choice.equals(DAY_SELECTIONS[2])) new Level2Tuesday();
-                else if (choice.equals(DAY_SELECTIONS[3])) new Level3Wednesday(); 
-                else if (choice.equals(DAY_SELECTIONS[4])) new Level4Thursday(); 
+                else if (choice.equals(DAY_SELECTIONS[1])) {                    
+                    new Display("Week 1: " + DAY_SELECTIONS[1], 
+                            "Week1Monday.png");
+                    new Level1Monday().main(args);
+                }
+                else if (choice.equals(DAY_SELECTIONS[2])) {
+                    new Display("Week 1: " + DAY_SELECTIONS[2], 
+                            "Week1Tuesday.png");
+                    new Level2Tuesday().main(args);
+                }
+                else if (choice.equals(DAY_SELECTIONS[3])) {
+                    new Display("Week 1: " + DAY_SELECTIONS[3], 
+                            "Week1Wednesday.png");
+                    new Level3Wednesday().main(args);
+                } 
+                else if (choice.equals(DAY_SELECTIONS[4])) {
+                    new Display("Week 1: " + DAY_SELECTIONS[4], 
+                            "Week1Thursday.png");
+                    new Level4Thursday().main(args);
+                } 
             }
             else if (choice.equals(WEEK_SELECTIONS[2])) System.exit(0); 
         } while (true);

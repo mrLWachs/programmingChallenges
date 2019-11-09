@@ -2,13 +2,11 @@
 package challenge.week1;
 
 import java.util.Scanner;
-import mainpackage.Display;
 
 public class Level4Thursday 
 {
 
-    public Level4Thursday() {
-        new Display("Week 1: Thursday - Level 4 Problem", "Week1Thursday.png");
+    public static void main(String[] args) {
         Scanner input = new Scanner(System.in);     
         String line = input.nextLine();
         int totalCases = Integer.parseInt(line);
@@ -27,7 +25,7 @@ public class Level4Thursday
         }
     }
 
-    private int[] getNumbers(String line) {
+    private static int[] getNumbers(String line) {
         String[] values = line.split("[ ]");
         int[] numbers = new int[values.length];
         for (int i = 0; i < numbers.length; i++) {
@@ -36,7 +34,7 @@ public class Level4Thursday
         return numbers;
     }
 
-    private int findHighest(int[] numbers) {
+    private static int findHighest(int[] numbers) {
         int highest = numbers[0];
         for (int i = 1; i < numbers.length; i++) {
             if (numbers[i] > highest) {
@@ -46,7 +44,7 @@ public class Level4Thursday
         return highest;
     }
 
-    private int findMissing(int[] numbers, int highestKid) {
+    private static int findMissing(int[] numbers, int highestKid) {
         int currentKid = highestKid;        
         for (int i = 0; i < numbers.length; i++) {
             boolean found = false;

@@ -2,14 +2,11 @@
 package challenge.week1;
 
 import java.util.Scanner;
-import mainpackage.Display;
-
 
 public class Level2Tuesday 
 {
 
-    public Level2Tuesday() {
-        new Display("Week 1: Tuesday - Level 2 Problem", "Week1Tuesday.png");
+    public static void main(String[] args) {
         Scanner input = new Scanner(System.in);     
         String line = input.nextLine();
         int[] counts = new int[3];

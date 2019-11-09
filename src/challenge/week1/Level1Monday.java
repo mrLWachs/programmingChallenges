@@ -2,13 +2,11 @@
 package challenge.week1;
 
 import java.util.Scanner;
-import mainpackage.Display;
 
 public class Level1Monday 
 {
 
-    public Level1Monday() {
-        new Display("Week 1: Monday - Level 1 Problem", "Week1Monday.png");
+    public static void main(String[] args) {
         Scanner input = new Scanner(System.in);     
         String line = input.nextLine();
         int totalCases = Integer.parseInt(line);

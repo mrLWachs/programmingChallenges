@@ -2,13 +2,11 @@
 package challenge.week1;
 
 import java.util.Scanner;
-import mainpackage.Display;
 
 public class Level3Wednesday 
 {
 
-    public Level3Wednesday() {
-        new Display("Week 1: Wednesday - Level 3 Problem", "Week1Wednesday.png");
+    public static void main(String[] args) {
         int[][] grid = createGrid();
         int rotationcount = 0;
         while (check(grid) == false) {
@@ -17,15 +15,6 @@ public class Level3Wednesday
         }        
         System.out.println("Rotations " + rotationcount);
         output(grid);        
-    }
-
-    private static int[] getValues(String line) {
-        String[] values = line.split("[ ]");
-        int[] numbers = new int[values.length];
-        for (int i = 0; i < numbers.length; i++) {
-            numbers[i] = Integer.parseInt(values[i]);
-        }
-        return numbers;   
     }
 
     private static int[][] createGrid() {
@@ -43,15 +32,13 @@ public class Level3Wednesday
         return grid;
     }
 
-    private static void output(int[][] grid) {
-        String value = "";
-        for (int r = 0; r < grid.length; r++) {
-            for (int c = 0; c < grid[r].length; c++) {
-                value += grid[r][c] + " ";
-            }
-            value += "\n";
+    private static int[] getValues(String line) {
+        String[] values = line.split("[ ]");
+        int[] numbers = new int[values.length];
+        for (int i = 0; i < numbers.length; i++) {
+            numbers[i] = Integer.parseInt(values[i]);
         }
-        System.out.println(value);
+        return numbers;   
     }
 
     private static boolean check(int[][] grid) {
@@ -69,17 +56,6 @@ public class Level3Wednesday
         return true;
     }
 
-    private static int[][] rotate(int[][] grid) {
-        int[][] newGrid = new int[grid.length][grid.length];
-        int r = 0;
-        for (int c = 0; c < grid.length; c++) {
-            int[] column = getColumn(grid,c);
-            newGrid = fillRow(newGrid,column,r);
-            r++;
-        }
-        return newGrid;
-    }
-
     private static boolean checkColumn(int[][] grid, int row) {
         int highest = grid[row][0];
         for (int c = 1; c < grid[row].length; c++) {
@@ -91,6 +67,17 @@ public class Level3Wednesday
             }
         }
         return true;
+    }
+    
+    private static int[][] rotate(int[][] grid) {
+        int[][] newGrid = new int[grid.length][grid.length];
+        int r = 0;
+        for (int c = 0; c < grid.length; c++) {
+            int[] column = getColumn(grid,c);
+            newGrid = fillRow(newGrid,column,r);
+            r++;
+        }
+        return newGrid;
     }
 
     private static int[] getColumn(int[][] grid, int column) {
@@ -117,6 +104,17 @@ public class Level3Wednesday
             index++;
         }
         return reverse;
+    }
+    
+    private static void output(int[][] grid) {
+        String value = "";
+        for (int r = 0; r < grid.length; r++) {
+            for (int c = 0; c < grid[r].length; c++) {
+                value += grid[r][c] + " ";
+            }
+            value += "\n";
+        }
+        System.out.println(value);
     }
 
 }
