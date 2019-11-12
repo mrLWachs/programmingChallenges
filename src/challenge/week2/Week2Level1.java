@@ -1,5 +1,5 @@
 
-package challenge.week1;
+package challenge.week2;
 
 import java.util.Scanner;
 

@@ -16,21 +16,13 @@ import javax.swing.JOptionPane;
 public class Display 
 {
     
-    public boolean choose(int week, String day) {
+    public boolean choose(int week, int level) {
         String title = "";
-        if (day.equals("Monday")) {
-            title = "Week " + week + " - Monday Problem (Level 1)";
-        }
-        else if (day.equals("Tuesday")) {
-            title = "Week " + week + " - Tuesday Problem (Level 2)";
-        }
-        else if (day.equals("Wednesday")) {
-            title = "Week " + week + " - Wednesday Problem (Level 3)";
-        }
-        else if (day.equals("Thursday")) {
-            title = "Week " + week + " - Thursday Problem (Level 4)";
-        }
-        String filename = "/media/Week" + week + day + ".png";
+        if      (level == 1) title = "Week " + week + " - Monday Problem (Level " + level + ")";
+        else if (level == 2) title = "Week " + week + " - Tuesday Problem (Level " + level + ")";
+        else if (level == 3) title = "Week " + week + " - Wednesday Problem (Level " + level + ")";
+        else if (level == 4) title = "Week " + week + " - Thursday Problem (Level " + level + ")";
+        String filename = "/media/Week" + week + "Level" + level + ".png";
         Icon icon = new ImageIcon(getClass().getResource(filename));
         String[] choices = {
           "Input Test Values","Pre-set Test Values"  

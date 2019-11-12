@@ -1,14 +1,24 @@
 
-package data;
+package data.week2;
+
+import io.System;
 
 public class Week2Level1Run 
 {
 
     public Week2Level1Run() {
+        System.out.header("Week 2, Level 1: starting");
         String[][] data = {
             {"W","L","W","W","L","W"},  
             {"L","L","L","L","L","L"}
         };
+        System.out.println("Inputs:\n");
+        for (int i = 0; i < data.length; i++) {
+            for (int j = 0; j < data[i].length; j++) {
+                System.out.println(data[i][j]);
+            }
+        }
+        System.out.println("\nOutputs:\n");
         final String WIN  = "W";
         for (int testCase = 0; testCase < data.length; testCase++) {
             int winCount = 0;
@@ -22,6 +32,8 @@ public class Week2Level1Run
             else if (winCount >= 1) result = 3;
             System.out.println(result);
         }
+        System.out.header("Week 2, Level 1: complete");
+        System.flush();
     }
 
 }
