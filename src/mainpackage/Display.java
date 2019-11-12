@@ -15,9 +15,8 @@ import javax.swing.JOptionPane;
  */
 public class Display 
 {
-
     
-    public int choose(int week, String day) {
+    public boolean choose(int week, String day) {
         String title = "";
         if (day.equals("Monday")) {
             title = "Week " + week + " - Monday Problem (Level 1)";
@@ -36,9 +35,11 @@ public class Display
         String[] choices = {
           "Input Test Values","Pre-set Test Values"  
         };        
-        return JOptionPane.showOptionDialog(null, "", title, 
+        if (JOptionPane.showOptionDialog(null, "", title, 
                 JOptionPane.YES_NO_CANCEL_OPTION, 
-                JOptionPane.INFORMATION_MESSAGE, icon, choices, choices[0]);
+                JOptionPane.INFORMATION_MESSAGE, icon, 
+                choices, choices[0]) == JOptionPane.YES_OPTION) return true;
+        return false;
     }
     
 }

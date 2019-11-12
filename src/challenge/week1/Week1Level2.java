@@ -3,7 +3,7 @@ package challenge.week1;
 
 import java.util.Scanner;
 
-public class Level2Tuesday 
+public class Week1Level2 
 {
 
     public static void main(String[] args) {

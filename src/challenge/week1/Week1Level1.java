@@ -3,7 +3,7 @@ package challenge.week1;
 
 import java.util.Scanner;
 
-public class Level1Monday 
+public class Week1Level1 
 {
 
     public static void main(String[] args) {
@@ -21,7 +21,8 @@ public class Level1Monday
             int    m  = Integer.parseInt(values[4]);   
             double temperature = (double)tP;
             for (int min = 1; min <= m; min++) {                
-                temperature = temperature +  k * (((double)tP) - (((double)tR) + (((double)min) * ((double)q))));
+                temperature = temperature +  k * (((double)tP) - 
+                        (((double)tR) + (((double)min) * ((double)q))));
             }
             outputs[testCase-1] = "Case #" + testCase + " " + temperature;
         }
