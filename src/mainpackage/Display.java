@@ -16,11 +16,29 @@ import javax.swing.JOptionPane;
 public class Display 
 {
 
-    public Display(String title, String filename) {
-        filename = "/media/" + filename;
+    
+    public int choose(int week, String day) {
+        String title = "";
+        if (day.equals("Monday")) {
+            title = "Week " + week + " - Monday Problem (Level 1)";
+        }
+        else if (day.equals("Tuesday")) {
+            title = "Week " + week + " - Tuesday Problem (Level 2)";
+        }
+        else if (day.equals("Wednesday")) {
+            title = "Week " + week + " - Wednesday Problem (Level 3)";
+        }
+        else if (day.equals("Thursday")) {
+            title = "Week " + week + " - Thursday Problem (Level 4)";
+        }
+        String filename = "/media/Week" + week + day + ".png";
         Icon icon = new ImageIcon(getClass().getResource(filename));
-        JOptionPane.showMessageDialog(null, "", title, 
-                JOptionPane.INFORMATION_MESSAGE, icon);
+        String[] choices = {
+          "Input Test Values","Pre-set Test Values"  
+        };        
+        return JOptionPane.showOptionDialog(null, "", title, 
+                JOptionPane.YES_NO_CANCEL_OPTION, 
+                JOptionPane.INFORMATION_MESSAGE, icon, choices, choices[0]);
     }
     
 }
