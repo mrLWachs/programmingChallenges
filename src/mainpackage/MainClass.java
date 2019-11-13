@@ -9,6 +9,8 @@ import challenge.week2.Week2Level1;
 import challenge.week2.Week2Level2;
 import data.week1.Week1Level1Run;
 import data.week1.Week1Level2Run;
+import data.week1.Week1Level3Run;
+import data.week1.Week1Level4Run;
 import data.week2.Week2Level1Run;
 import data.week2.Week2Level2Run;
 import javax.swing.JOptionPane;
@@ -57,11 +59,11 @@ public class MainClass
                 }
                 else if (choice.equals(LEVELS[3])) {
                     if (display.choose(1,3)) new Week1Level3().main(args);
-                    else                     new Week1Level1Run();
+                    else                     new Week1Level3Run();
                 } 
                 else if (choice.equals(LEVELS[4])) {
                     if (display.choose(1,4)) new Week1Level4().main(args);
-                    else                     new Week1Level1Run();
+                    else                     new Week1Level4Run();
                 } 
             }
             else if (choice.equals(WEEKS[2])) {

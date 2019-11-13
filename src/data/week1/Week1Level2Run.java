@@ -10,7 +10,6 @@ public class Week1Level2Run
         System.out.header("Week 1, Level 2: starting");        
         String[] cases = { "aaa","aab","aabc" };
         System.out.println("Inputs:\n");
-        System.out.println(cases.length);
         for (int i = 0; i < cases.length; i++) {
             System.out.println(cases[i]);
         }
