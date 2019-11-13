@@ -8,6 +8,7 @@ import challenge.week1.Week1Level4;
 import challenge.week2.Week2Level1;
 import challenge.week2.Week2Level2;
 import challenge.week2.Week2Level3;
+import challenge.week2.Week2Level4;
 import data.week1.Week1Level1Run;
 import data.week1.Week1Level2Run;
 import data.week1.Week1Level3Run;
@@ -45,7 +46,7 @@ public class Globals
             new Week2Level1(), 
             new Week2Level2(),
             new Week2Level3(), 
-            new Week2Level3() 
+            new Week2Level4() 
         }
     };
     public static Problem[][] runs = {
