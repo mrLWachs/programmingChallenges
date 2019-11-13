@@ -2,11 +2,12 @@
 package data.week1;
 
 import io.System;
+import mainpackage.Problem;
 
-public class Week1Level2Run 
+public class Week1Level2Run  extends Problem
 {
 
-    public Week1Level2Run() {   
+    public void start() {   
         System.out.header("Week 1, Level 2: starting");        
         String[] cases = { "aaa","aab","aabc" };
         System.out.println("Inputs:\n");

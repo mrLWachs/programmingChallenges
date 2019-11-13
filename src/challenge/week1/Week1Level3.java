@@ -2,11 +2,16 @@
 package challenge.week1;
 
 import java.util.Scanner;
+import mainpackage.Problem;
 
-public class Week1Level3 
+public class Week1Level3 extends Problem
 {
 
     public static void main(String[] args) {
+        new Week1Level3().start();
+    }
+    
+    public void start()  {
         int[][] grid = createGrid();
         int rotationcount = 0;
         while (check(grid) == false) {

@@ -3,10 +3,12 @@ package data.week1;
 
 
 import io.System;
+import mainpackage.Problem;
 
-public class Week1Level1Run {
+public class Week1Level1Run  extends Problem
+{
     
-    public Week1Level1Run() {   
+    public void start() {   
         System.out.header("Week 1, Level 1: starting");
         String[][] cases = {
             {"425","60","-0.01","3","1"},

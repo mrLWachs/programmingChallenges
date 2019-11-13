@@ -2,11 +2,12 @@
 package data.week1;
 
 import io.System;
+import mainpackage.Problem;
 
-public class Week1Level4Run 
+public class Week1Level4Run  extends Problem
 {
 
-    public Week1Level4Run() {   
+    public void start() {   
         System.out.header("Week 1, Level 4: starting"); 
         String[] lines = { 
             "2",

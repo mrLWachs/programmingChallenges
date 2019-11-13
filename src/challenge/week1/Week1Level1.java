@@ -2,11 +2,16 @@
 package challenge.week1;
 
 import java.util.Scanner;
+import mainpackage.Problem;
 
-public class Week1Level1 
+public class Week1Level1 extends Problem
 {
-
+    
     public static void main(String[] args) {
+        new Week1Level1().start();
+    }
+
+    public void start()  {
         Scanner input = new Scanner(System.in);     
         String line = input.nextLine();
         int totalCases = Integer.parseInt(line);

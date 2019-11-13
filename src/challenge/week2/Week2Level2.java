@@ -2,11 +2,16 @@
 package challenge.week2;
 
 import java.util.Scanner;
+import mainpackage.Problem;
 
-public class Week2Level2 
+public class Week2Level2 extends Problem
 {
-
+    
     public static void main(String[] args) {
+        new Week2Level2().start();
+    }
+
+    public void start()  {
         Scanner input = new Scanner(System.in);   
         System.out.println("Enter lower limit of range");
         String lowerInput = input.nextLine();

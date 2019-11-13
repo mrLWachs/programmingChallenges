@@ -2,12 +2,17 @@
 package challenge.week2;
 
 import java.util.Scanner;
+import mainpackage.Problem;
 
 
-public class Week2Level1 
+public class Week2Level1 extends Problem
 {
 
     public static void main(String[] args) {
+        new Week2Level1().start();
+    }
+    
+    public void start() {
         Scanner input = new Scanner(System.in);     
         final String WIN  = "W";
         int winCount  = 0;
