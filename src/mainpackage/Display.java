@@ -25,13 +25,13 @@ public class Display
         String filename = "/media/Week" + week + "Level" + level + ".png";
         Icon icon = new ImageIcon(getClass().getResource(filename));
         String[] choices = {
-          "Input Test Values","Pre-set Test Values"  
+          "Pre-set Test Values","Input Test Values"  
         };        
         if (JOptionPane.showOptionDialog(null, "", title, 
                 JOptionPane.YES_NO_CANCEL_OPTION, 
                 JOptionPane.INFORMATION_MESSAGE, icon, 
-                choices, choices[0]) == JOptionPane.YES_OPTION) return true;
-        return false;
+                choices, choices[0]) == JOptionPane.YES_OPTION) return false;
+        return true;
     }
     
 }
