@@ -4,10 +4,12 @@ package io;
 
 /** required imports */
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.KeyEvent;
 import java.io.InputStream;
 import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
 
@@ -329,10 +331,17 @@ public class System
      */
     public static void flush() {  
         JTextArea area = new JTextArea();
-        area.setFont(new Font("Lucida Console",Font.PLAIN,18));
-        area.setBackground(new Color(255,255,255));
+        area.setFont(new Font("Courier New",Font.PLAIN,18));
+        final int COLOR_VALUE = 238;
+        area.setBackground(new Color(COLOR_VALUE,COLOR_VALUE,COLOR_VALUE));
         area.setText(allOutput);
-        JOptionPane.showMessageDialog(null, area, 
+        area.setBorder(null);
+        JScrollPane scrollPane = new JScrollPane(area);  
+        area.setLineWrap(true);  
+        area.setWrapStyleWord(true); 
+        scrollPane.setPreferredSize( new Dimension( 1000, 800 ) );
+        scrollPane.setBorder(null);
+        JOptionPane.showMessageDialog(null, scrollPane, 
                 "Outputs...", JOptionPane.PLAIN_MESSAGE);
         allOutput = "";
     }
