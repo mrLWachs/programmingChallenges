@@ -12,12 +12,12 @@ public class Week1Level4 extends Problem
     }
 
     public void start() {
-        Scanner input = new Scanner(System.in);     
-        String line = input.nextLine();
-        int totalCases = Integer.parseInt(line);
-        String[] outputs = new String[totalCases];
-        for (int testCase = 1; testCase <= totalCases; testCase++) {
-            line = input.nextLine();
+        Scanner input = new Scanner(System.in);                                 // instantiate scanner object
+        String line = input.nextLine();                                         // read in the next full line of input
+        int totalCases = Integer.parseInt(line);                                // convert to integer
+        String[] outputs = new String[totalCases];                              // create array for output lines
+        for (int testCase = 1; testCase <= totalCases; testCase++) {            // loop through all test cases
+            line = input.nextLine();                                            // read in the next full line of input
             int[] numbers  = getNumbers(line);            
             int highestKid = findHighest(numbers);
             int missing    = findMissing(numbers,highestKid);
