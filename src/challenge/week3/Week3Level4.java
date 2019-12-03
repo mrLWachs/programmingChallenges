@@ -15,8 +15,12 @@ public class Week3Level4 extends Problem
     public void start() {
         Scanner input = new Scanner(System.in); 
         String line = input.nextLine();
-        
-        
+        while (!line.equals("0")) {
+            int dimension = Integer.parseInt(line);
+            
+            
+            line = input.nextLine();
+        }        
     }
 
 }
