@@ -12,7 +12,7 @@ public class Week2Level2 extends Problem
     }
 
     public void start()  {
-        Scanner input = new Scanner(System.in);   
+        Scanner input = new Scanner(System.in);                                 // instantiate scanner object
         System.out.println("Enter lower limit of range");
         String lowerInput = input.nextLine();
         System.out.println("Enter upper limit of range");
