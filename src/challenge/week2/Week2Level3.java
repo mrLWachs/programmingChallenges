@@ -13,41 +13,41 @@ public class Week2Level3 extends Problem
     }
     
     public void start()  {
-        Scanner input = new Scanner(System.in);  
-        String line = input.nextLine();
-        int totalTests = Integer.parseInt(line);
-        String[] outputs = new String[totalTests];
-        for (int test = 0; test < totalTests; test++) {
-            line = input.nextLine();
-            int size = Integer.parseInt(line);
-            line = input.nextLine();
-            String[] values = line.split("[ ]");
-            int[]    board  = new int[size];
-            for (int i = 0; i < board.length; i++) {
-                board[i] = Integer.parseInt(values[i]);
+        Scanner input = new Scanner(System.in);                                 // instantiate scanner object
+        String line = input.nextLine();                                         // read in the next full line of input
+        int totalTests = Integer.parseInt(line);                                // convert the line into the integer
+        String[] outputs = new String[totalTests];                              // create array for all the outputs
+        for (int test = 0; test < totalTests; test++) {                         // traverse all the tests
+            line = input.nextLine();                                            // read in the next full line of input
+            int size = Integer.parseInt(line);                                  // convert to the size integer
+            line = input.nextLine();                                            // read in the next full line of input
+            String[] values = line.split("[ ]");                                // split the line into a string array
+            int[]    board  = new int[size];                                    // create an integer array of the same size
+            for (int i = 0; i < board.length; i++) {                            // traverse the array
+                board[i] = Integer.parseInt(values[i]);                         // convert string to integer
             }
-            final String WIN  = "Active player wins.";
-            final String LOSE = "Active player loses.";
-            if (check(board)) outputs[test] = WIN;
-            else              outputs[test] = LOSE;
+            final String WIN  = "Active player wins.";                          // scenario for a win
+            final String LOSE = "Active player loses.";                         // scenario for a loss
+            if (check(board)) outputs[test] = WIN;                              // check for win, add to outputs
+            else              outputs[test] = LOSE;                             // add loss to outputs
         }
-        for (int i = 0; i < outputs.length; i++) {
-            System.out.println(outputs[i]);
+        for (int i = 0; i < outputs.length; i++) {                              // traverse the outputs array
+            System.out.println(outputs[i]);                                     // output to user
         }        
     }
 
     private static boolean check(int[] board) {
-        int       player  = 0;
-        int       end     = board.length - 1;
-        boolean[] visited = new boolean[board.length];        
-        while(player < end && visited[player] != true) {
-            int moves = board[player];
-            visited[player] = true;
-            if (moves % 2 == 0) player -= moves;
-            else                player += moves;
-            if (player >= end) return true;
+        int       player  = 0;                                                  // track current player
+        int       end     = board.length - 1;                                   // mark the end off the array
+        boolean[] visited = new boolean[board.length];                          // array of visited spots
+        while(player < end && visited[player] != true) {                        // loop til the end and not visited a spot yet
+            int moves = board[player];                                          // get the moves from the board
+            visited[player] = true;                                             // mark this spot on the board as visited
+            if (moves % 2 == 0) player -= moves;                                // move forward or backward if divisible by 2
+            else                player += moves;                                // move forward
+            if (player >= end) return true;                                     // reached the end of the board and won
         }
-        return false;
+        return false;                                                           // did not win
     }
 
 }
