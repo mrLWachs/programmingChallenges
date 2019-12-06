@@ -12,36 +12,36 @@ public class Week2Level4 extends Problem
     }
     
     public void start()  {
-        Scanner input = new Scanner(System.in);  
-        String line = input.nextLine();
-        int totalTests = Integer.parseInt(line);
-        String[] outputs = new String[totalTests];
-        for (int test = 0; test < totalTests; test++) {
-            line = input.nextLine();
-            String[] values = line.split("[ ]");
-            int n = Integer.parseInt(values[0]);
-            int t = Integer.parseInt(values[1]);
-            char[][] grid = new char[n][n];
-            for (int i = 0; i < n; i++) {
-                line = input.nextLine();
-                char[] row = line.toCharArray();
-                grid[i] = row;
+        Scanner input = new Scanner(System.in);                                 // instantiate scanner object
+        String line = input.nextLine();                                         // read in the next full line of input
+        int totalTests = Integer.parseInt(line);                                // convert to integer for total tests
+        String[] outputs = new String[totalTests];                              // create output array for all test cases
+        for (int test = 0; test < totalTests; test++) {                         // loop though all test cases
+            line = input.nextLine();                                            // read in the next full line of input
+            String[] values = line.split("[ ]");                                // split the line into a string array
+            int n = Integer.parseInt(values[0]);                                // get n value from index 0
+            int t = Integer.parseInt(values[1]);                                // get t value from index 1
+            char[][] grid = new char[n][n];                                     // create char matrix from n value
+            for (int i = 0; i < n; i++) {                                       // traverse all rows
+                line = input.nextLine();                                        // read in the next full line of input
+                char[] row = line.toCharArray();                                // convert to a char array 
+                grid[i] = row;                                                  // assign char array to row in matrix
             }
-            showGrid(grid,0);
-            for (int i = 1; i <= t; i++) {
-                grid = life(grid,i);
-                showGrid(grid,i);
+            showGrid(grid,0);                                                   // show the grid 
+            for (int i = 1; i <= t; i++) {                                      // traverse all the generations
+                grid = life(grid,i);                                            // apply the rules of life to a new grid
+                showGrid(grid,i);                                               // show that grid
             }        
         }
-        for (int i = 0; i < outputs.length; i++) {
-            System.out.println(outputs[i]);
+        for (int i = 0; i < outputs.length; i++) {                              // traverse all outputs
+            System.out.println(outputs[i]);                                     // output to the screen
         }
     }
 
     private char[][] life(char[][] grid, int generation) {
-        final char ALIVE = 'X';
-        final char DEAD  = '_';        
-        int size = grid.length;
+        final char ALIVE = 'X';                                                 // mark a living spot
+        final char DEAD  = '_';                                                 // mark a dead spot
+        int size = grid.length;                                                 // get the size of the grid
         char[][] nextGeneration = new char[size][size];
         for (int r = 0; r < grid.length; r++) {
             for (int c = 0; c < grid[r].length; c++) {
