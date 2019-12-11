@@ -177,7 +177,7 @@ public class System
          * @param object The Object type to be 'printed'
          */
         public static void print(Object object) {
-            output(object,true);
+            output(object,false);
         }
         
         /**
