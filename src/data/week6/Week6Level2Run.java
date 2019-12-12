@@ -2,8 +2,6 @@
 package data.week6;
 
 import io.System;
-import java.util.ArrayList;
-import java.util.Scanner;
 import mainpackage.Problem;
 
 public class Week6Level2Run  extends Problem
