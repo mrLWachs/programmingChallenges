@@ -25,6 +25,10 @@ import challenge.week6.Week6Level1;
 import challenge.week6.Week6Level2;
 import challenge.week6.Week6Level3;
 import challenge.week6.Week6Level4;
+import challenge.week7.Week7Level1;
+import challenge.week7.Week7Level2;
+import challenge.week7.Week7Level3;
+import challenge.week7.Week7Level4;
 import data.week1.Week1Level1Run;
 import data.week1.Week1Level2Run;
 import data.week1.Week1Level3Run;
@@ -49,6 +53,10 @@ import data.week6.Week6Level1Run;
 import data.week6.Week6Level2Run;
 import data.week6.Week6Level3Run;
 import data.week6.Week6Level4Run;
+import data.week7.Week7Level1Run;
+import data.week7.Week7Level2Run;
+import data.week7.Week7Level3Run;
+import data.week7.Week7Level4Run;
 
 public class Globals 
 {
@@ -62,7 +70,8 @@ public class Globals
         "Week 3 Problems",
         "Week 4 Problems",
         "Week 5 Problems",
-        "Week 6 Problems"
+        "Week 6 Problems",
+        "Week 7 Problems"
     };        
     public static final String[] LEVELS = {
         "Quit",
@@ -107,6 +116,12 @@ public class Globals
             new Week6Level2(),
             new Week6Level3(), 
             new Week6Level4() 
+        },
+        {  
+            new Week7Level1(), 
+            new Week7Level2(),
+            new Week7Level3(), 
+            new Week7Level4() 
         }
     };
     public static Problem[][] runs = {
@@ -145,6 +160,12 @@ public class Globals
             new Week6Level2Run(),          
             new Week6Level3Run(), 
             new Week6Level4Run() 
+        },
+        { 
+            new Week7Level1Run(), 
+            new Week7Level2Run(),          
+            new Week7Level3Run(), 
+            new Week7Level4Run() 
         }
     };
     public static final String PROMPT_1 = "Choose a week for the problems...";
