@@ -9,9 +9,12 @@ public class MainClass
     public static void main(String[] args) {
         do {            
             int week  = get(Globals.PROMPT_1,Globals.WEEKS);
-            int level = get(Globals.PROMPT_2,Globals.LEVELS);         
-            if (Globals.choose(week, level)) Globals.input(week, level);
-            else                             Globals.run(week, level);
+            if (week == Globals.WEEKS.length - 1) Globals.runAll();
+            else {
+                int level = get(Globals.PROMPT_2,Globals.LEVELS);             
+                if (Globals.choose(week, level)) Globals.input(week, level);
+                else                             Globals.run(week, level);
+            }
         } while (true);
     }
         

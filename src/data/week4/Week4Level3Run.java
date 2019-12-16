@@ -3,14 +3,24 @@ package data.week4;
 
 import io.System;
 import java.util.ArrayList;
-import mainpackage.Problem;
+import mainpackage.AutoRun;
 
 
-public class Week4Level3Run extends Problem
+public class Week4Level3Run extends AutoRun
 {
     
-    public void start() {   
-        System.out.header("Week 4, Level 3: starting");          
+    public void auto(int week, int level) {
+        start(week, level);
+        System.autoFlush();
+    }
+    
+    public void run(int week, int level) {
+        start(week, level);
+        System.flush();
+    }
+
+    private void start(int week, int level) {    
+        System.out.header("Week " + week + ", Level " + level + ": starting");        
         String[] lines = { 
            "4 2 3 1 4",
            "1 3 1 5 5 7 0 -1 1"
@@ -55,8 +65,7 @@ public class Week4Level3Run extends Problem
         for (int i = 0; i < outputs.size(); i++) {
             System.out.println(outputs.get(i));
         }        
-        System.out.header("Week 4, Level 3: complete");
-        System.flush();
+        System.out.header("Week " + week + ", Level " + level + ": complete");
     }
     
     private int[] toInts(String[] values) {

@@ -2,14 +2,24 @@
 package data.week6;
 
 import io.System;
-import mainpackage.Problem;
+import mainpackage.AutoRun;
 
 
-public class Week6Level1Run  extends Problem
+public class Week6Level1Run  extends AutoRun
 {
 
-    public void start() {   
-        System.out.header("Week 6, Level 1: starting");          
+    public void auto(int week, int level) {
+        start(week, level);
+        System.autoFlush();
+    }
+    
+    public void run(int week, int level) {
+        start(week, level);
+        System.flush();
+    }
+
+    private void start(int week, int level) {  
+        System.out.header("Week " + week + ", Level " + level + ": starting");          
         String[] lines = { 
            "3",
            "30",
@@ -45,25 +55,25 @@ public class Week6Level1Run  extends Problem
             final int      WEEKS_IN_MONTH = 7;
             final int      DAYS_IN_WEEK   = 7;        
             String[][] month = new String[WEEKS_IN_MONTH][DAYS_IN_WEEK];
-            for (int week = 0; week < WEEKS_IN_MONTH; week++) {
+            for (int w = 0; w < WEEKS_IN_MONTH; w++) {
                 int weekDay = 1;
                 for (int day = 0; day < DAYS_IN_WEEK; day++) {                
-                    if (week == HEADER) {
-                        month[week][day] = DAYS[day] + SPACE;
+                    if (w == HEADER) {
+                        month[w][day] = DAYS[day] + SPACE;
                     }                
                     else {
-                        if (weekDay < startingDay && week == 1) {
-                            month[week][day] = BLANK_DAY;
+                        if (weekDay < startingDay && w == 1) {
+                            month[w][day] = BLANK_DAY;
                         }
                         else if (currentDay > daysInMonth) {
-                            month[week][day] = BLANK_DAY;
+                            month[w][day] = BLANK_DAY;
                         }
                         else {
                             if (currentDay < 10) {
-                                month[week][day] = SPACE + SPACE + currentDay + SPACE;
+                                month[w][day] = SPACE + SPACE + currentDay + SPACE;
                             }
                             else {
-                                month[week][day] = SPACE + currentDay + SPACE;
+                                month[w][day] = SPACE + currentDay + SPACE;
                             }
                             currentDay++;
                         }
@@ -71,15 +81,14 @@ public class Week6Level1Run  extends Problem
                     }
                 }
             }
-            for (int week = 0; week < WEEKS_IN_MONTH; week++) {
+            for (int w = 0; w < WEEKS_IN_MONTH; w++) {
                 for (int day = 0; day < DAYS_IN_WEEK; day++) {
-                    System.out.print(month[week][day]);
+                    System.out.print(month[w][day]);
                 }
                 System.out.println("");
             }
         } 
-        System.out.header("Week 6, Level 1: complete");
-        System.flush();
+        System.out.header("Week " + week + ", Level " + level + ": complete");
     }
 
 }

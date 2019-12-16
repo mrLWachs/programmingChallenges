@@ -2,13 +2,23 @@
 package data.week6;
 
 import io.System;
-import mainpackage.Problem;
+import mainpackage.AutoRun;
 
-public class Week6Level3Run  extends Problem
+public class Week6Level3Run  extends AutoRun
 {
 
-    public void start() {   
-        System.out.header("Week 6, Level 3: starting");          
+    public void auto(int week, int level) {
+        start(week, level);
+        System.autoFlush();
+    }
+    
+    public void run(int week, int level) {
+        start(week, level);
+        System.flush();
+    }
+
+    private void start(int week, int level) {
+        System.out.header("Week " + week + ", Level " + level + ": starting");         
         String[] lines = { 
            "48",
            "3",
@@ -48,8 +58,7 @@ public class Week6Level3Run  extends Problem
             System.out.println("Martha plays " + martha.timesPlayed + 
                                " times before going broke.");
         }
-        System.out.header("Week 6, Level 3: complete");
-        System.flush();
+        System.out.header("Week " + week + ", Level " + level + ": complete");
     }
     
     private class Gambler

@@ -3,14 +3,23 @@ package data.week4;
 
 import io.System;
 import java.util.ArrayList;
-import java.util.Scanner;
-import mainpackage.Problem;
+import mainpackage.AutoRun;
 
-public class Week4Level1Run  extends Problem
+public class Week4Level1Run  extends AutoRun
 {
 
-    public void start() {   
-        System.out.header("Week 4, Level 1: starting");          
+    public void auto(int week, int level) {
+        start(week, level);
+        System.autoFlush();
+    }
+    
+    public void run(int week, int level) {
+        start(week, level);
+        System.flush();
+    }
+
+    private void start(int week, int level) {   
+        System.out.header("Week " + week + ", Level " + level + ": starting");          
         String[] lines = { 
            "20000",
            "60",
@@ -37,8 +46,7 @@ public class Week4Level1Run  extends Problem
         for (int i = 0; i < outputs.size(); i++) {
             System.out.println(outputs.get(i));
         }        
-        System.out.header("Week 4, Level 1: complete");
-        System.flush();
+        System.out.header("Week " + week + ", Level " + level + ": complete");
     }
 
 }

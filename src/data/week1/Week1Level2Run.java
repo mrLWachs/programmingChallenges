@@ -2,13 +2,23 @@
 package data.week1;
 
 import io.System;
-import mainpackage.Problem;
+import mainpackage.AutoRun;
 
-public class Week1Level2Run  extends Problem
+public class Week1Level2Run  extends AutoRun
 {
 
-    public void start() {   
-        System.out.header("Week 1, Level 2: starting");        
+    public void auto(int week, int level) {
+        start(week, level);
+        System.autoFlush();
+    }
+    
+    public void run(int week, int level) {
+        start(week, level);
+        System.flush();
+    }
+
+    private void start(int week, int level) {    
+        System.out.header("Week " + week + ", Level " + level + ": starting");        
         String[] cases = { "aaa","aab","aabc" };
         System.out.println("Inputs:\n");
         for (int i = 0; i < cases.length; i++) {
@@ -40,7 +50,6 @@ public class Week1Level2Run  extends Problem
             if (counts[2] >= 3) output = "set of three: c";
             System.out.println(output);  
         }
-        System.out.header("Week 1, Level 2: complete");
-        System.flush();
+        System.out.header("Week " + week + ", Level " + level + ": complete");
     }
 }

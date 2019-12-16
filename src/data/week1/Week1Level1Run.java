@@ -3,13 +3,23 @@ package data.week1;
 
 
 import io.System;
-import mainpackage.Problem;
+import mainpackage.AutoRun;
 
-public class Week1Level1Run  extends Problem
+public class Week1Level1Run  extends AutoRun
 {
     
-    public void start() {   
-        System.out.header("Week 1, Level 1: starting");
+    public void auto(int week, int level) {
+        start(week, level);
+        System.autoFlush();
+    }
+    
+    public void run(int week, int level) {
+        start(week, level);
+        System.flush();
+    }
+
+    private void start(int week, int level) {    
+        System.out.header("Week " + week + ", Level " + level + ": starting");
         String[][] cases = {
             {"425","60","-0.01","3","1"},
             {"425","60","-0.01","3","2"},
@@ -38,8 +48,7 @@ public class Week1Level1Run  extends Problem
             }
             System.out.println("Case #" + (c+1) + " " + temperature);
         }
-        System.out.header("Week 1, Level 1: complete");
-        System.flush();
+        System.out.header("Week " + week + ", Level " + level + ": complete");
     }
     
 }

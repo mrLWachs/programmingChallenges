@@ -2,13 +2,23 @@
 package data.week2;
 
 import io.System;
-import mainpackage.Problem;
+import mainpackage.AutoRun;
 
-public class Week2Level2Run  extends Problem
+public class Week2Level2Run  extends AutoRun
 {
 
-    public void start() {
-        System.out.header("Week 2, Level 2: starting");
+    public void auto(int week, int level) {
+        start(week, level);
+        System.autoFlush();
+    }
+    
+    public void run(int week, int level) {
+        start(week, level);
+        System.flush();
+    }
+
+    private void start(int week, int level) { 
+        System.out.header("Week " + week + ", Level " + level + ": starting"); 
         String[][] data = {
             {"10","12"},  
             {"11","15"}
@@ -35,8 +45,7 @@ public class Week2Level2Run  extends Problem
             System.out.println("The number of RAS numbers between " +
                     lower + " and " + upper + " is " + rsaCount + "\n");
         }
-        System.out.header("Week 2, Level 2: complete");
-        System.flush();
+        System.out.header("Week " + week + ", Level " + level + ": complete");
     }
 
 }

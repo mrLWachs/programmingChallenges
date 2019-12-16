@@ -5,13 +5,23 @@ import io.System;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.LinkedList;
-import mainpackage.Problem;
+import mainpackage.AutoRun;
 
-public class Week6Level4Run  extends Problem
+public class Week6Level4Run  extends AutoRun
 {
 
-    public void start() {   
-        System.out.header("Week 6, Level 4: starting");          
+    public void auto(int week, int level) {
+        start(week, level);
+        System.autoFlush();
+    }
+    
+    public void run(int week, int level) {
+        start(week, level);
+        System.flush();
+    }
+
+    private void start(int week, int level) {  
+        System.out.header("Week " + week + ", Level " + level + ": starting");          
         String[] lines = { 
            "3",
            "1 2 3 4 5",
@@ -63,8 +73,7 @@ public class Week6Level4Run  extends Problem
             }
             System.out.println(output);
         }
-        System.out.header("Week 6, Level 4: complete");
-        System.flush();
+        System.out.header("Week " + week + ", Level " + level + ": complete");
     }
 
 }

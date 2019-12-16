@@ -3,16 +3,23 @@ package data.week5;
 
 import io.System;
 import java.util.ArrayList;
-import mainpackage.Problem;
+import mainpackage.AutoRun;
 
-public class Week5Level3Run  extends Problem
+public class Week5Level3Run  extends AutoRun
 {
-    
-    int a = 0;
-    int b = 0;
 
-    public void start() {   
-        System.out.header("Week 5, Level 3: starting");          
+    public void auto(int week, int level) {
+        start(week, level);
+        System.autoFlush();
+    }
+    
+    public void run(int week, int level) {
+        start(week, level);
+        System.flush();
+    }
+
+    private void start(int week, int level) {  
+        System.out.header("Week " + week + ", Level " + level + ": starting");          
         String[] lines = { 
            "1 A 3",
            "1 B 4",
@@ -43,9 +50,12 @@ public class Week5Level3Run  extends Problem
         for (int i = 0; i < outputs.size(); i++) {
             System.out.println(outputs.get(i));
         }        
-        System.out.header("Week 5, Level 3: complete");
-        System.flush();
+        System.out.header("Week " + week + ", Level " + level + ": complete");
     }
+    
+    
+    int a = 0;
+    int b = 0;
 
     private void execute(String[] instruction, ArrayList<String> outputs) {        
         if (instruction.length == 2) {

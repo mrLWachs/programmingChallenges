@@ -58,6 +58,8 @@ import data.week7.Week7Level2Run;
 import data.week7.Week7Level3Run;
 import data.week7.Week7Level4Run;
 
+
+
 public class Globals 
 {
 
@@ -71,7 +73,8 @@ public class Globals
         "Week 4 Problems",
         "Week 5 Problems",
         "Week 6 Problems",
-        "Week 7 Problems"
+        "Week 7 Problems",
+        "Run all problems and solutions..."
     };        
     public static final String[] LEVELS = {
         "Quit",
@@ -80,6 +83,7 @@ public class Globals
         "Level 3 Problem",
         "Level 4 Problem"
     };                
+    
     public static Problem[][] problems = {
         { 
             new Week1Level1(), 
@@ -124,7 +128,7 @@ public class Globals
             new Week7Level4() 
         }
     };
-    public static Problem[][] runs = {
+    public static AutoRun[][] runs = {
         { 
             new Week1Level1Run(), 
             new Week1Level2Run(),          
@@ -170,6 +174,7 @@ public class Globals
     };
     public static final String PROMPT_1 = "Choose a week for the problems...";
     public static final String PROMPT_2 = "Choose a problem for this week...";
+    
     public static Display display = new Display();
     
     public static boolean choose(int week, int level) {
@@ -181,6 +186,15 @@ public class Globals
     }
     
     public static void run(int week, int level) {
-        runs[week-1][level-1].start();
+        runs[week-1][level-1].run(week, level);
+    }
+
+    public static void runAll() {
+        for (int week = 0; week < runs.length; week++) {
+            for (int level = 0; level < runs[week].length; level++) {
+                display.showProblem(week+1, level+1);
+                runs[week][level].auto(week+1, level+1);
+            }
+        }
     }
 }

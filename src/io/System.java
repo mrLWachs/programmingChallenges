@@ -3,14 +3,12 @@
 package io;
 
 /** required imports */
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Font;
 import java.awt.event.KeyEvent;
 import java.io.InputStream;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
+import mainpackage.Display;
 
 
 /**
@@ -25,90 +23,8 @@ import javax.swing.JTextArea;
 public class System 
 {
     
-    private static String allOutput = "";
-
-    private final static String[] FONTS = {
-        "Consolas",
-        "Trebuchet MS",
-        "Tahoma",
-        "Bookman Old Style",
-    };
-    
-    public static InputStream in = java.lang.System.in;
-    
-    public static final String RESET                    = "\033[0m";  
-    public static final String BLACK                    = "\033[0;30m";   
-    public static final String RED                      = "\033[0;31m";   
-    public static final String GREEN                    = "\033[0;32m";  
-    public static final String YELLOW                   = "\033[0;33m";  
-    public static final String BLUE                     = "\033[0;34m";   
-    public static final String PURPLE                   = "\033[0;35m";  
-    public static final String CYAN                     = "\033[0;36m";  
-    public static final String WHITE                    = "\033[0;37m";  
-    public static final String BLACK_BOLD               = "\033[1;30m";  
-    public static final String RED_BOLD                 = "\033[1;31m";   
-    public static final String GREEN_BOLD               = "\033[1;32m"; 
-    public static final String YELLOW_BOLD              = "\033[1;33m"; 
-    public static final String BLUE_BOLD                = "\033[1;34m";  
-    public static final String PURPLE_BOLD              = "\033[1;35m"; 
-    public static final String CYAN_BOLD                = "\033[1;36m";  
-    public static final String WHITE_BOLD               = "\033[1;37m"; 
-    public static final String BLACK_UNDERLINED         = "\033[4;30m"; 
-    public static final String RED_UNDERLINED           = "\033[4;31m";  
-    public static final String GREEN_UNDERLINED         = "\033[4;32m"; 
-    public static final String YELLOW_UNDERLINED        = "\033[4;33m"; 
-    public static final String BLUE_UNDERLINED          = "\033[4;34m";  
-    public static final String PURPLE_UNDERLINED        = "\033[4;35m";
-    public static final String CYAN_UNDERLINED          = "\033[4;36m";  
-    public static final String WHITE_UNDERLINED         = "\033[4;37m"; 
-    public static final String BLACK_BACKGROUND         = "\033[40m";  
-    public static final String RED_BACKGROUND           = "\033[41m";  
-    public static final String GREEN_BACKGROUND         = "\033[42m"; 
-    public static final String YELLOW_BACKGROUND        = "\033[43m"; 
-    public static final String BLUE_BACKGROUND          = "\033[44m";   
-    public static final String PURPLE_BACKGROUND        = "\033[45m"; 
-    public static final String CYAN_BACKGROUND          = "\033[46m";   
-    public static final String WHITE_BACKGROUND         = "\033[47m";  
-    public static final String BLACK_BRIGHT             = "\033[0;90m";  
-    public static final String RED_BRIGHT               = "\033[0;91m"; 
-    public static final String GREEN_BRIGHT             = "\033[0;92m";  
-    public static final String YELLOW_BRIGHT            = "\033[0;93m"; 
-    public static final String BLUE_BRIGHT              = "\033[0;94m";  
-    public static final String PURPLE_BRIGHT            = "\033[0;95m"; 
-    public static final String CYAN_BRIGHT              = "\033[0;96m";  
-    public static final String WHITE_BRIGHT             = "\033[0;97m";  
-    public static final String BLACK_BOLD_BRIGHT        = "\033[1;90m"; 
-    public static final String RED_BOLD_BRIGHT          = "\033[1;91m";  
-    public static final String GREEN_BOLD_BRIGHT        = "\033[1;92m"; 
-    public static final String YELLOW_BOLD_BRIGHT       = "\033[1;93m";
-    public static final String BLUE_BOLD_BRIGHT         = "\033[1;94m"; 
-    public static final String PURPLE_BOLD_BRIGHT       = "\033[1;95m";
-    public static final String CYAN_BOLD_BRIGHT         = "\033[1;96m";  
-    public static final String WHITE_BOLD_BRIGHT        = "\033[1;97m"; 
-    public static final String BLACK_BACKGROUND_BRIGHT  = "\033[0;100m";
-    public static final String RED_BACKGROUND_BRIGHT    = "\033[0;101m";
-    public static final String GREEN_BACKGROUND_BRIGHT  = "\033[0;102m";
-    public static final String YELLOW_BACKGROUND_BRIGHT = "\033[0;103m";
-    public static final String BLUE_BACKGROUND_BRIGHT   = "\033[0;104m";
-    public static final String PURPLE_BACKGROUND_BRIGHT = "\033[0;105m"; 
-    public static final String CYAN_BACKGROUND_BRIGHT   = "\033[0;106m";  
-    public static final String WHITE_BACKGROUND_BRIGHT  = "\033[0;107m";  
-    
-    private static final String[] COLORS = {
-        RESET,BLACK,RED,GREEN,YELLOW,BLUE,PURPLE,CYAN,WHITE,BLACK_BOLD,
-        RED_BOLD,GREEN_BOLD,YELLOW_BOLD,BLUE_BOLD,PURPLE_BOLD,CYAN_BOLD,
-        WHITE_BOLD,BLACK_UNDERLINED,RED_UNDERLINED,GREEN_UNDERLINED,
-        YELLOW_UNDERLINED,BLUE_UNDERLINED,PURPLE_UNDERLINED,CYAN_UNDERLINED,
-        WHITE_UNDERLINED,BLACK_BACKGROUND,RED_BACKGROUND,GREEN_BACKGROUND,
-        YELLOW_BACKGROUND,BLUE_BACKGROUND,PURPLE_BACKGROUND,CYAN_BACKGROUND,
-        WHITE_BACKGROUND,BLACK_BRIGHT,RED_BRIGHT,GREEN_BRIGHT,YELLOW_BRIGHT,
-        BLUE_BRIGHT,PURPLE_BRIGHT,CYAN_BRIGHT,WHITE_BRIGHT,BLACK_BOLD_BRIGHT,
-        RED_BOLD_BRIGHT,GREEN_BOLD_BRIGHT,YELLOW_BOLD_BRIGHT,BLUE_BOLD_BRIGHT,
-        PURPLE_BOLD_BRIGHT,CYAN_BOLD_BRIGHT,WHITE_BOLD_BRIGHT,
-        BLACK_BACKGROUND_BRIGHT,RED_BACKGROUND_BRIGHT,GREEN_BACKGROUND_BRIGHT,
-        YELLOW_BACKGROUND_BRIGHT,BLUE_BACKGROUND_BRIGHT,
-        PURPLE_BACKGROUND_BRIGHT,CYAN_BACKGROUND_BRIGHT,WHITE_BACKGROUND_BRIGHT
-    };
+    private static String     allOutput = "";
+    public static InputStream in        = java.lang.System.in;
     
     
     /**
@@ -234,10 +150,11 @@ public class System
         public static void header(Object object) {   
             if (object == null) return;
             String text = object.toString() + line(); 
-            simpleOutput("\n");
-            simpleColorOutput(text, "", BLUE, RESET);
-            simpleOutput("\n");
-            allOutput += "\n" + text + "\n\n";
+            simpleOutput(Defaults.NEW_LINE);
+            simpleColorOutput(text, "", Defaults.BLUE, Defaults.RESET);
+            simpleOutput(Defaults.NEW_LINE);
+            allOutput += Defaults.NEW_LINE + text + Defaults.NEW_LINE + 
+                         Defaults.NEW_LINE;
         }
         
         /**
@@ -247,9 +164,9 @@ public class System
          * @param object The Object type to be 'printed'
          */
         public static void comment(Object object) {  
-            if (object == null) object = new String("null"); 
-            String text = "// " + object.toString();
-            simpleColorOutput(text, "", YELLOW, RESET);
+            if (object == null) object = new String(Defaults.NULL); 
+            String text = Defaults.COMMENT + object.toString();
+            simpleColorOutput(text, "", Defaults.YELLOW, Defaults.RESET);
         }
         
             
@@ -261,10 +178,10 @@ public class System
          * @param newLine adds a new line (true) or not (false)
          */
         private static void output(Object object, boolean newLine) {
-            if (object == null) object = new String("null");
+            if (object == null) object = new String(Defaults.NULL);
             if (newLine) {
-                allOutput += object.toString() + "\n";
-                simpleOutput(object.toString() + "\n");
+                allOutput += object.toString() + Defaults.NEW_LINE;
+                simpleOutput(object.toString() + Defaults.NEW_LINE);
             }
             else {
                 allOutput += object.toString();
@@ -286,7 +203,7 @@ public class System
             simpleOutput("");
             simpleOutput(color + message + reset);
             simpleOutput(font);
-            simpleOutput("\n");
+            simpleOutput(Defaults.NEW_LINE);
         }
         
         /**
@@ -306,8 +223,10 @@ public class System
          * @return a text line of 50 dots
          */
         private static String line() {
-            String text = ".";
-            for (int i = 0; i < 50; i++) text += ".";
+            String text = Defaults.LINE;
+            for (int i = 0; i < Defaults.LINE_LENGTH; i++) {
+                text += Defaults.LINE;
+            }
             return text;
         }
         
@@ -330,20 +249,13 @@ public class System
      * Adds all the output to a visual output
      */
     public static void flush() {  
-        JTextArea area = new JTextArea();
-        area.setFont(new Font("Courier New",Font.PLAIN,18));
-        final int COLOR_VALUE = 238;
-        area.setBackground(new Color(COLOR_VALUE,COLOR_VALUE,COLOR_VALUE));
-        area.setText(allOutput);
-        area.setBorder(null);
-        JScrollPane scrollPane = new JScrollPane(area);  
-        area.setLineWrap(true);  
-        area.setWrapStyleWord(true); 
-        scrollPane.setPreferredSize( new Dimension( 1000, 800 ) );
-        scrollPane.setBorder(null);
-        JOptionPane.showMessageDialog(null, scrollPane, 
-                "Outputs...", JOptionPane.PLAIN_MESSAGE);
+        new Display().showDialog(allOutput);
         allOutput = "";
     }
-        
+    
+    public static void autoFlush() {  
+        new Display().showTimedDialog(allOutput,3000);
+        allOutput = "";
+    }
+    
 }

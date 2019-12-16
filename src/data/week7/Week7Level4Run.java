@@ -2,14 +2,24 @@
 package data.week7;
 
 import io.System;
-import mainpackage.Problem;
+import mainpackage.AutoRun;
 
 
-public class Week7Level4Run  extends Problem
+public class Week7Level4Run  extends AutoRun
 {
 
-    public void start() {   
-        System.out.header("Week 7, Level 4: starting");          
+    public void auto(int week, int level) {
+        start(week, level);
+        System.autoFlush();
+    }
+    
+    public void run(int week, int level) {
+        start(week, level);
+        System.flush();
+    }
+
+    private void start(int week, int level) {  
+        System.out.header("Week " + week + ", Level " + level + ": starting");        
         String[] lines = { 
            "HV",
            "VVHH"
@@ -24,8 +34,7 @@ public class Week7Level4Run  extends Problem
             int[][] grid = allFlips(line);
             System.out.println(toString(grid));
         }
-        System.out.header("Week 7, Level 4: complete");
-        System.flush();
+        System.out.header("Week " + week + ", Level " + level + ": complete");
     }
     
     private int[][] allFlips(String line) {

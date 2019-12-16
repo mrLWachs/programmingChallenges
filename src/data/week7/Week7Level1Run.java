@@ -2,14 +2,24 @@
 package data.week7;
 
 import io.System;
-import mainpackage.Problem;
+import mainpackage.AutoRun;
 
 
-public class Week7Level1Run  extends Problem
+public class Week7Level1Run  extends AutoRun
 {
+    
+    public void auto(int week, int level) {
+        start(week, level);
+        System.autoFlush();
+    }
+    
+    public void run(int week, int level) {
+        start(week, level);
+        System.flush();
+    }
 
-    public void start() {   
-        System.out.header("Week 7, Level 1: starting");          
+    private void start(int week, int level) {   
+        System.out.header("Week " + week + ", Level " + level + ": starting"); 
         String[] lines = { 
            "No inputs!"
         };
@@ -23,8 +33,7 @@ public class Week7Level1Run  extends Problem
                 System.out.println(i);
             }
         }
-        System.out.header("Week 7, Level 1: complete");
-        System.flush();
+        System.out.header("Week " + week + ", Level " + level + ": complete");
     }
 
     private boolean isFunctional(int number) {

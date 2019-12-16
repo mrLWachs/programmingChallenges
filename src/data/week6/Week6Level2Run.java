@@ -2,13 +2,23 @@
 package data.week6;
 
 import io.System;
-import mainpackage.Problem;
+import mainpackage.AutoRun;
 
-public class Week6Level2Run  extends Problem
+public class Week6Level2Run  extends AutoRun
 {
 
-    public void start() {   
-        System.out.header("Week 6, Level 2: starting");          
+    public void auto(int week, int level) {
+        start(week, level);
+        System.autoFlush();
+    }
+    
+    public void run(int week, int level) {
+        start(week, level);
+        System.flush();
+    }
+
+    private void start(int week, int level) { 
+        System.out.header("Week " + week + ", Level " + level + ": starting");          
         String[] lines = { 
            "3",
            "3 2",
@@ -30,8 +40,7 @@ public class Week6Level2Run  extends Problem
             long answer = knuthsUpArrow(a,b);
             System.out.println(answer);
         }     
-        System.out.header("Week 6, Level 2: complete");
-        System.flush();
+        System.out.header("Week " + week + ", Level " + level + ": complete");
     }
 
     private long knuthsUpArrow(int a, int b) {

@@ -2,14 +2,24 @@
 package data.week7;
 
 import io.System;
-import mainpackage.Problem;
+import mainpackage.AutoRun;
 
 
-public class Week7Level2Run  extends Problem
+public class Week7Level2Run  extends AutoRun
 {
 
-    public void start() {   
-        System.out.header("Week 7, Level 2: starting");          
+    public void auto(int week, int level) {
+        start(week, level);
+        System.autoFlush();
+    }
+    
+    public void run(int week, int level) {
+        start(week, level);
+        System.flush();
+    }
+
+    private void start(int week, int level) {   
+        System.out.header("Week " + week + ", Level " + level + ": starting");           
         String[] lines = { 
            "TrT135a6",
            "abct1abco",
@@ -26,8 +36,7 @@ public class Week7Level2Run  extends Problem
             if (isValid(line)) System.out.println("Password 'good'");
             else               System.out.println("Password 'bad'");
         }
-        System.out.header("Week 7, Level 2: complete");
-        System.flush();
+        System.out.header("Week " + week + ", Level " + level + ": complete");
     }
     
     private boolean isValid(String password) {

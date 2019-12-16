@@ -4,22 +4,23 @@ package data.week5;
 import io.System;
 import java.util.ArrayList;
 import java.util.Arrays;
-import mainpackage.Problem;
+import mainpackage.AutoRun;
 
-public class Week5Level4Run  extends Problem
+public class Week5Level4Run  extends AutoRun
 {
-    int n1;
-    int n2;
-    int[] n1X;
-    int[] n1Y;
-    int[] n2X;
-    int[] n2Y;
-    int[] distances1;
-    int[] distances2;
     
+    public void auto(int week, int level) {
+        start(week, level);
+        System.autoFlush();
+    }
     
-    public void start() {   
-        System.out.header("Week 5, Level 4: starting");          
+    public void run(int week, int level) {
+        start(week, level);
+        System.flush();
+    }
+
+    private void start(int week, int level) { 
+        System.out.header("Week " + week + ", Level " + level + ": starting");           
         String[] lines = { 
             "4 3",
             "0 -12 -14 14 -60 62 30 65",
@@ -58,10 +59,19 @@ public class Week5Level4Run  extends Problem
         for (int i = 0; i < outputs.size(); i++) {
             System.out.println(outputs.get(i));
         }        
-        System.out.header("Week 5, Level 4: complete");
-        System.flush();
+        System.out.header("Week " + week + ", Level " + level + ": complete");
     }
-
+    
+    int n1;
+    int n2;
+    int[] n1X;
+    int[] n1Y;
+    int[] n2X;
+    int[] n2Y;
+    int[] distances1;
+    int[] distances2;
+    
+    
     private String calculate() {
         Arrays.sort(distances1);
         Arrays.sort(distances2);

@@ -2,13 +2,23 @@
 package data.week2;
 
 import io.System;
-import mainpackage.Problem;
+import mainpackage.AutoRun;
 
-public class Week2Level1Run  extends Problem
+public class Week2Level1Run  extends AutoRun
 {
 
-    public void start() {
-        System.out.header("Week 2, Level 1: starting");
+    public void auto(int week, int level) {
+        start(week, level);
+        System.autoFlush();
+    }
+    
+    public void run(int week, int level) {
+        start(week, level);
+        System.flush();
+    }
+
+    private void start(int week, int level) { 
+        System.out.header("Week " + week + ", Level " + level + ": starting"); 
         String[][] data = {
             {"W","L","W","W","L","W"},  
             {"L","L","L","L","L","L"}
@@ -33,8 +43,7 @@ public class Week2Level1Run  extends Problem
             else if (winCount >= 1) result = 3;
             System.out.println(result);
         }
-        System.out.header("Week 2, Level 1: complete");
-        System.flush();
+        System.out.header("Week " + week + ", Level " + level + ": complete");
     }
 
 }

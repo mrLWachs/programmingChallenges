@@ -2,27 +2,23 @@
 package data.week3;
 
 import io.System;
-import mainpackage.Problem;
+import mainpackage.AutoRun;
 
-public class Week3Level2Run  extends Problem
+public class Week3Level2Run  extends AutoRun
 {
 
-    final String ENTER = "enter";
-    final String SPACE = " ";    
-    final String DASH  = "-";    
-    final String DOT   = ".";   
-    final String[][] GRID = {
-        {"A","B","C","D","E","F"},
-        {"G","H","I","J","K","L"},
-        {"M","N","O","P","Q","R"},
-        {"S","T","U","V","W","X"},
-        {"Y","Z",SPACE,DASH,DOT,ENTER}            
-    };
-    int currentRow    = 0;
-    int currentColumn = 0;
+    public void auto(int week, int level) {
+        start(week, level);
+        System.autoFlush();
+    }
     
-    public void start() {   
-        System.out.header("Week 3, Level 2: starting");          
+    public void run(int week, int level) {
+        start(week, level);
+        System.flush();
+    }
+
+    private void start(int week, int level) {   
+        System.out.header("Week " + week + ", Level " + level + ": starting");          
         String[] lines = { 
            "GPS",
            "ECHO ROCK"
@@ -53,10 +49,24 @@ public class Week3Level2Run  extends Problem
             System.out.println(totalMoves);  
             
         }        
-        System.out.header("Week 3, Level 2: complete");
-        System.flush();
+        System.out.header("Week " + week + ", Level " + level + ": complete");
     }
 
+    final String ENTER = "enter";
+    final String SPACE = " ";    
+    final String DASH  = "-";    
+    final String DOT   = ".";   
+    final String[][] GRID = {
+        {"A","B","C","D","E","F"},
+        {"G","H","I","J","K","L"},
+        {"M","N","O","P","Q","R"},
+        {"S","T","U","V","W","X"},
+        {"Y","Z",SPACE,DASH,DOT,ENTER}            
+    };
+    int currentRow    = 0;
+    int currentColumn = 0;
+    
+    
     private int getMoves(String value) {
         int foundRow      = findRow(value);
         int foundColumn   = findColumn(value);

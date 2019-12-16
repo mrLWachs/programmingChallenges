@@ -4,6 +4,7 @@ package challenge.week1;
 import java.util.Scanner;
 import mainpackage.Problem;
 
+
 public class Week1Level1 extends Problem
 {
     
