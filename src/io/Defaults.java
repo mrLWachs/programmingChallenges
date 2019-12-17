@@ -16,11 +16,12 @@ import java.awt.Font;
 public class Defaults 
 {
     
-    private final static int DIALOG_FONT_SIZE = 18;
-    private final static int DIALOG_COLOR_RGB = 238;
-    private final static int DIALOG_WIDTH     = 1000;
-    private final static int DIALOG_HEIGHT    = 800;
-    
+    private final static int DIALOG_FONT_SIZE   = 18;
+    private final static int DIALOG_COLOR_RED   = 255; //238;
+    private final static int DIALOG_COLOR_GREEN = 255; //238;
+    private final static int DIALOG_COLOR_BLUE  = 255; //238;        
+    private final static int DIALOG_WIDTH       = 1000;
+    private final static int DIALOG_HEIGHT      = 800;
     
     public final static int LINE_LENGTH = 50;
                 
@@ -34,8 +35,10 @@ public class Defaults
     
     public final static Font   DIALOG_FONT = new Font(FONTS[0],
             Font.PLAIN,DIALOG_FONT_SIZE);
-    public final static Color  DIALOG_BACKGROUND = new Color(DIALOG_COLOR_RGB,
-            DIALOG_COLOR_RGB,DIALOG_COLOR_RGB);
+    public final static Color  DIALOG_BACKGROUND = new Color(
+            DIALOG_COLOR_RED,
+            DIALOG_COLOR_GREEN,
+            DIALOG_COLOR_BLUE);
     public final static Dimension DIALOG_DIMENSION = new Dimension(
             DIALOG_WIDTH, DIALOG_HEIGHT);
     

@@ -3,8 +3,11 @@
 package mainpackage;
 
 import io.Defaults;
+import java.awt.Component;
+import java.awt.Container;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JComponent;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
@@ -41,10 +44,6 @@ public class Display
         showTimedDialog("", title, icon, 3000);
     }
     
-    public void showSolution(String text) {
-        
-    }
-    
     public void showTimedDialog(String text, int delay) {
         showTimedDialog(getScrollArea(text), "", null, delay);
     }
@@ -52,8 +51,11 @@ public class Display
     public void showTimedDialog(Object message, String title, Icon icon, int delay) {
         JOptionPane jOptionDialog = new JOptionPane(message, 
                 JOptionPane.PLAIN_MESSAGE,JOptionPane.DEFAULT_OPTION,icon);
+        setBackgrounds(jOptionDialog);
         final JDialog dialog = jOptionDialog.createDialog(title);
-        dialog.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
+        setBackgrounds(dialog);
+        dialog.getContentPane().setBackground(Defaults.DIALOG_BACKGROUND);
+        dialog.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);        
         Runnable run = new Runnable() {
             @Override
             public void run() {
@@ -83,14 +85,23 @@ public class Display
         JTextArea   area       = new JTextArea();
         JScrollPane scrollPane = new JScrollPane(area);
         area.setFont(Defaults.DIALOG_FONT);
-        area.setBackground(Defaults.DIALOG_BACKGROUND);
         area.setText(text);
         area.setBorder(null);
         area.setLineWrap(true);  
         area.setWrapStyleWord(true); 
+        setBackgrounds(area);
+        setBackgrounds(scrollPane);
         scrollPane.setPreferredSize(Defaults.DIALOG_DIMENSION);
         scrollPane.setBorder(null);
         return scrollPane;
+    }
+    
+    private void setBackgrounds(Container container) {
+        container.setBackground(Defaults.DIALOG_BACKGROUND);
+        Component[] components = container.getComponents();
+        for (int i = 0; i < components.length; i++) {
+            components[i].setBackground(Defaults.DIALOG_BACKGROUND);
+        }
     }
     
 }
