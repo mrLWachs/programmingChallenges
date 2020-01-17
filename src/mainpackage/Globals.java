@@ -29,6 +29,10 @@ import challenge.week7.Week7Level1;
 import challenge.week7.Week7Level2;
 import challenge.week7.Week7Level3;
 import challenge.week7.Week7Level4;
+import challenge.week8.Week8Level1;
+import challenge.week8.Week8Level2;
+import challenge.week8.Week8Level3;
+import challenge.week8.Week8Level4;
 import data.week1.Week1Level1Run;
 import data.week1.Week1Level2Run;
 import data.week1.Week1Level3Run;
@@ -57,6 +61,10 @@ import data.week7.Week7Level1Run;
 import data.week7.Week7Level2Run;
 import data.week7.Week7Level3Run;
 import data.week7.Week7Level4Run;
+import data.week8.Week8Level1Run;
+import data.week8.Week8Level2Run;
+import data.week8.Week8Level3Run;
+import data.week8.Week8Level4Run;
 
 
 
@@ -74,6 +82,7 @@ public class Globals
         "Week 5 Problems",
         "Week 6 Problems",
         "Week 7 Problems",
+        "Week 8 Problems",
         "Run all problems and solutions..."
     };        
     public static final String[] LEVELS = {
@@ -126,6 +135,12 @@ public class Globals
             new Week7Level2(),
             new Week7Level3(), 
             new Week7Level4() 
+        },
+        {  
+            new Week8Level1(), 
+            new Week8Level2(),
+            new Week8Level3(), 
+            new Week8Level4() 
         }
     };
     public static AutoRun[][] runs = {
@@ -170,6 +185,12 @@ public class Globals
             new Week7Level2Run(),          
             new Week7Level3Run(), 
             new Week7Level4Run() 
+        },
+        { 
+            new Week8Level1Run(), 
+            new Week8Level2Run(),          
+            new Week8Level3Run(), 
+            new Week8Level4Run() 
         }
     };
     public static final String PROMPT_1 = "Choose a week for the problems...";
