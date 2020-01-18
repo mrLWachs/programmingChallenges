@@ -5,6 +5,7 @@ package mainpackage;
 import io.Defaults;
 import java.awt.Component;
 import java.awt.Container;
+import java.net.URL;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JDialog;
@@ -25,7 +26,9 @@ public class Display
     public boolean choose(int week, int level) {
         String title    = "Week " + week + " - Level " + level + " Problem";
         String filename = "/media/Week" + week + "Level" + level + ".png";
-        Icon   icon     = new ImageIcon(getClass().getResource(filename));
+        URL    url      = getClass().getResource(filename);
+        Icon   icon     = null;
+        if (url != null) icon = new ImageIcon(url);
         String[] choices = {
           "Pre-set Test Values","Input Test Values"  
         };        
