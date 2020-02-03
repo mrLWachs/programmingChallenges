@@ -13,7 +13,7 @@ public class Week9Level1 extends Problem
     }
     
     public void start() {        
-        Scanner input = new Scanner(System.in);        
+        Scanner input = new Scanner(System.in);                                 // instantiate scanner object
         int month = Integer.parseInt(input.nextLine());
         int day   = Integer.parseInt(input.nextLine());
         check(month,day);    
