@@ -81,26 +81,50 @@ public class Globals
 
     public static final String TITLE = "Computer Science "
             + "Challenge Club (CSCC at CSHC)";
+//    public static final String[] WEEKS = {
+//        "Quit",
+//        "Week 1 Problems",
+//        "Week 2 Problems",
+//        "Week 3 Problems",
+//        "Week 4 Problems",
+//        "Week 5 Problems",
+//        "Week 6 Problems",
+//        "Week 7 Problems",
+//        "Week 8 Problems",
+//        "Week 9 Problems",
+//        "Run all problems and solutions..."
+//    };        
+    
+    public static final String[] YEARS = {
+        "2019-2020"
+    };
+    
     public static final String[] WEEKS = {
-        "Quit",
-        "Week 1 Problems",
-        "Week 2 Problems",
-        "Week 3 Problems",
-        "Week 4 Problems",
-        "Week 5 Problems",
-        "Week 6 Problems",
-        "Week 7 Problems",
-        "Week 8 Problems",
-        "Week 9 Problems",
-        "Run all problems and solutions..."
-    };        
+        "Week 1",
+        "Week 2",
+        "Week 3",
+        "Week 4",
+        "Week 5",
+        "Week 6",
+        "Week 7",
+        "Week 8",
+        "Week 9"
+    };  
+    
     public static final String[] LEVELS = {
-        "Quit",
-        "Level 1 Problem",
-        "Level 2 Problem",
-        "Level 3 Problem",
-        "Level 4 Problem"
-    };                
+        "Level 1",
+        "Level 2",
+        "Level 3",
+        "Level 4"
+    };
+    
+//    public static final String[] LEVELS = {
+//        "Quit",
+//        "Level 1 Problem",
+//        "Level 2 Problem",
+//        "Level 3 Problem",
+//        "Level 4 Problem"
+//    };                
     
     public static Problem[][] problems = {
         { 
