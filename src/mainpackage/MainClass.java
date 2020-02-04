@@ -16,19 +16,19 @@ public class MainClass
         
     private static void dialogs() {
         do {            
-            int week  = get(Globals.PROMPT_2,Globals.WEEKS);
-            if (week == Globals.WEEKS.length - 1) Globals.runAll();
+            int week  = get(UIModel.PROMPT_2,UIModel.WEEKS);
+            if (week == UIModel.WEEKS.length - 1) UIModel.runAll();
             else {
-                int level = get(Globals.PROMPT_3,Globals.LEVELS);             
-                if (Globals.choose(week, level)) Globals.input(week, level);
-                else                             Globals.run(week, level);
+                int level = get(UIModel.PROMPT_3,UIModel.LEVELS);             
+                if (UIModel.choose(week, level)) UIModel.input(week, level);
+                else                             UIModel.run(week, level);
             }
         } while (true);
     }
     
     private static int get(String prompt, String[] choices) {
         String choice = JOptionPane.showInputDialog(null, prompt, 
-                Globals.TITLE, JOptionPane.QUESTION_MESSAGE, null, 
+                UIModel.TITLE, JOptionPane.QUESTION_MESSAGE, null, 
                 choices, choices[0]).toString();
         if (choice == null)            System.exit(0);
         if (choice.equals(choices[0])) System.exit(0);

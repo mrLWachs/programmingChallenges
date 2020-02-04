@@ -103,14 +103,14 @@ public class UIController
         levelList.setModel( levelListModel );
         
         // look through lists and add options
-        fillList(yearList,yearListModel,Globals.YEARS);
-        fillList(weekList,weekListModel,Globals.WEEKS);
-        fillList(levelList,levelListModel,Globals.LEVELS);
+        fillList(yearList,yearListModel,UIModel.YEARS);
+        fillList(weekList,weekListModel,UIModel.WEEKS);
+        fillList(levelList,levelListModel,UIModel.LEVELS);
         
         // set the properties of the user interface view
         uiView.setBackground(UIModel.CONTROL_BACKGROUND);
         uiView.getContentPane().setBackground(UIModel.CONTROL_BACKGROUND);
-        uiView.setTitle(UIModel.APP_TITLE);
+        uiView.setTitle(UIModel.TITLE);
         uiView.setSize(UIModel.APP_WIDTH, UIModel.APP_HEIGHT);
         uiView.setResizable(false);
         uiView.setLocationRelativeTo(null);
@@ -120,17 +120,17 @@ public class UIController
     public void runSelectedProblem() {
         int year = yearList.getSelectedIndex();
         if (year == -1) JOptionPane.showMessageDialog(uiView, 
-                Globals.PROMPT_1,Globals.TITLE,JOptionPane.ERROR_MESSAGE);        
+                UIModel.PROMPT_1,UIModel.TITLE,JOptionPane.ERROR_MESSAGE);        
         int week = weekList.getSelectedIndex();
         if (week == -1) JOptionPane.showMessageDialog(uiView, 
-                Globals.PROMPT_2,Globals.TITLE,JOptionPane.ERROR_MESSAGE);        
+                UIModel.PROMPT_2,UIModel.TITLE,JOptionPane.ERROR_MESSAGE);        
         int level = levelList.getSelectedIndex();
         if (level == -1) JOptionPane.showMessageDialog(uiView, 
-                Globals.PROMPT_3,Globals.TITLE,JOptionPane.ERROR_MESSAGE);
+                UIModel.PROMPT_3,UIModel.TITLE,JOptionPane.ERROR_MESSAGE);
         level++;
         week++;
-        if (Globals.choose(week, level)) Globals.input(week, level);
-        else                             Globals.run(week, level);
+        if (UIModel.choose(week, level)) UIModel.input(week, level);
+        else                             UIModel.run(week, level);
     }
 
     public void runAllProblems() {
