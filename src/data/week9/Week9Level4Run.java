@@ -21,11 +21,8 @@ public class Week9Level4Run  extends AutoRun
     private void start(int week, int level) {   
         System.out.header("Week " + week + ", Level " + level + ": starting"); 
         String[] lines = { 
-            "1",
             "2",
-            "3",
-            "4",
-            "5",
+            "4",          
             "0"
         };
         System.out.println("Inputs:\n");
@@ -37,131 +34,56 @@ public class Week9Level4Run  extends AutoRun
         int i = 0;
         while (!line.equals("0")) {
             int n = Integer.parseInt(line);
-            makeRuler(n,(i+1));
+            System.out.println(makeRuler(n,(i+1)));
             i++;
             line = lines[i];
         }
         System.out.header("Week " + week + ", Level " + level + ": complete");
     }
 
-    private void output(String[][] grid, int count) {
-        System.out.println("=CASE " + count + "=");
-        for (int r = 0; r < grid.length; r++) {
-            for (int c = 0; c < grid[r].length; c++) {
-                if (grid[r][c] == null) System.out.print(".");
-                else                    System.out.print(grid[r][c]);
-            }
-            System.out.println("");
-        }
-        System.out.println("");
-    }
-    
-    private void makeRuler(int n, int count) {
+    private String makeRuler(int n, int count) {
+        final String LINE  = "|";
+        final String SPACE = " ";
+        int old = 0;
         int rows        = n + 1;
         int columns     = (int)(Math.pow(2, n)) + 1;
         String[][] grid = new String[rows][columns];
-        
-        int start  = 0;
-        int end    = columns-1;
-        int length = rows;
-        
-        fill(start,grid,length);
-        fill(end,grid,length);
-        
-        length--;
-         
-        int mid = (start + end) / 2;
-        
-        fill(mid,grid,length);
-        
-        length--;
-        
-        int start1 = mid + 1;
-        int end1   = end - 1;
-        int mid1   = (start1 + end1) / 2;
-                
-        fill(mid1,grid,length);
-        
-        int start2 = start + 1;
-        int end2   = mid - 1;
-        int mid2   = (start2 + end2) / 2;
-                
-        fill(mid2,grid,length);
-        
-        output(grid,count);
-        
-
-    }
-
-    private void fill(int column, String[][] grid, int length) {
-        for (int i = 0; i < grid.length; i++) {
-            if (i < length) grid[i][column] = "|";
-            else            grid[i][column] = null;
+        for (int r = 0; r < rows; r++) {
+            if (r == 0) {
+                for (int c = 0; c < columns; c++) {
+                    grid[r][c] = LINE;
+                }
+            }
+            else {
+                int spaces = old * 2 + 1;
+                old = spaces;                
+                boolean isSpace = false;                
+                for (int c = 0; c < columns; c++) {                    
+                    if (!isSpace) {
+                        grid[r][c] = LINE;
+                        isSpace = true;
+                    }
+                    else {
+                        for (int i = 0; i < spaces; i++) {
+                            c++;
+                            grid[r][c] = SPACE;
+                        }
+                        c--;
+                        isSpace = false;
+                    }                    
+                }                
+            }
         }
+        String text = "=CASE " + count + "=\n";
+        for (int row = 0; row < rows; row++) {
+            for (int column = 0; column < columns; column++) {
+                if (grid[row][column] == null) grid[row][column] = SPACE;
+                text += grid[row][column];
+            }
+            text += "\n";
+        }
+        text += "\n";
+        return text;
     }
-   
     
 }
-
-
-        
-//        int length = rows;
-//        int index  = columns - 1;
-//        
-//        
-//        for (int c = 0; c < columns; c++) {
-//            
-//            int column1 = index;
-//                        
-//            fill(column1,grid,length);
-//            
-//            index = index / 2;
-//            
-////            int column2 = column1 + index;
-////            
-////            fill(column2,grid,length);
-//            
-//            length--;
-//        }
-//        
-//        
-//        output(grid,count);
-
-//        for (int r = 0; r < rows; r++) {
-//            for (int c = 0; c < columns; c++) {
-//                if (r ==0) {
-//                    grid[r][c] = "|";
-//                }
-//                else if (c ==0 || c == grid[r].length-1) {
-//                    grid[r][c] = "|";
-//                }
-//                else {
-//                    grid[r][c] = ".";
-//                }                
-//            }
-//        }
-        
-        
-        
-        
-        
-        
-        
-//        for (int i = n; i >= 0; i--) {
-//            
-//            
-//            
-//            int exponent = i;
-//            int smallest = (int)(Math.pow(2, exponent));
-//            
-////            System.out.println("exponent = " + exponent);
-////            System.out.println("smallest = " + smallest);
-//            
-//            
-//            for (int j = 0; j <= smallest; j++) {
-//                System.out.print("|");
-//            }
-//            System.out.println("");
-//        }
-        
-//        System.out.println("");

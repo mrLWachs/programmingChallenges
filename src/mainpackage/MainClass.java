@@ -7,6 +7,14 @@ public class MainClass
 {
 
     public static void main(String[] args) {
+        
+        new UIView();
+        
+        
+        
+    }
+        
+    private static void dialogs() {
         do {            
             int week  = get(Globals.PROMPT_1,Globals.WEEKS);
             if (week == Globals.WEEKS.length - 1) Globals.runAll();
@@ -17,7 +25,7 @@ public class MainClass
             }
         } while (true);
     }
-        
+    
     private static int get(String prompt, String[] choices) {
         String choice = JOptionPane.showInputDialog(null, prompt, 
                 Globals.TITLE, JOptionPane.QUESTION_MESSAGE, null, 
