@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
 /** required package class namespace */
 package mainpackage;
@@ -12,6 +7,7 @@ import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 
  
@@ -39,7 +35,7 @@ public class UIController
     private JButton       runAllProblemsButton;
     
     private DefaultListModel yearListModel;
-    private DefaultListModel weekListtModel;
+    private DefaultListModel weekListModel;
     private DefaultListModel levelListModel;
     
     private JComponent[] controls;
@@ -96,23 +92,20 @@ public class UIController
             control.setBackground(UIModel.CONTROL_BACKGROUND);
             control.setForeground(UIModel.DEFAULT_FOREGROUND_COLOR);
         }
+        
         // instantiate all list models
         yearListModel  = new DefaultListModel();
-        weekListtModel = new DefaultListModel();
+        weekListModel = new DefaultListModel();
         levelListModel = new DefaultListModel();
         // set list models to the UI list box controls
         yearList.setModel(  yearListModel  );
-        weekList.setModel(  weekListtModel );
+        weekList.setModel(  weekListModel );
         levelList.setModel( levelListModel );
         
         // look through lists and add options
-        for (int i = 0; i < Globals.WEEKS.length; i++) {
-            weekListtModel.addElement(Globals.WEEKS[i]);
-        }
-        weekList.ensureIndexIsVisible(weekListtModel.getSize() - 1);
-        weekList.setSelectedIndex(weekListtModel.getSize() - 1);
-        
-        
+        fillList(yearList,yearListModel,Globals.YEARS);
+        fillList(weekList,weekListModel,Globals.WEEKS);
+        fillList(levelList,levelListModel,Globals.LEVELS);
         
         // set the properties of the user interface view
         uiView.setBackground(UIModel.CONTROL_BACKGROUND);
@@ -125,7 +118,19 @@ public class UIController
     }
 
     public void runSelectedProblem() {
-        
+        int year = yearList.getSelectedIndex();
+        if (year == -1) JOptionPane.showMessageDialog(uiView, 
+                Globals.PROMPT_1,Globals.TITLE,JOptionPane.ERROR_MESSAGE);        
+        int week = weekList.getSelectedIndex();
+        if (week == -1) JOptionPane.showMessageDialog(uiView, 
+                Globals.PROMPT_2,Globals.TITLE,JOptionPane.ERROR_MESSAGE);        
+        int level = levelList.getSelectedIndex();
+        if (level == -1) JOptionPane.showMessageDialog(uiView, 
+                Globals.PROMPT_3,Globals.TITLE,JOptionPane.ERROR_MESSAGE);
+        level++;
+        week++;
+        if (Globals.choose(week, level)) Globals.input(week, level);
+        else                             Globals.run(week, level);
     }
 
     public void runAllProblems() {
@@ -136,4 +141,24 @@ public class UIController
         System.exit(0);
     }
 
+    private void fillList(JList<String> list, DefaultListModel model, 
+            String[] array) {
+        for (int i = 0; i < array.length; i++) {
+            model.addElement(array[i]);
+        }
+        list.ensureIndexIsVisible(model.getSize() - 1);
+        list.setSelectedIndex(model.getSize() - 1);
+    }
+
 }
+
+
+//do {            
+//    int week  = get(Globals.PROMPT_2,Globals.WEEKS);
+//    if (week == Globals.WEEKS.length - 1) Globals.runAll();
+//    else {
+//        int level = get(Globals.PROMPT_3,Globals.LEVELS);             
+//        if (Globals.choose(week, level)) Globals.input(week, level);
+//        else                             Globals.run(week, level);
+//    }
+//} while (true);

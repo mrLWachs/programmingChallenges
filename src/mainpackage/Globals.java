@@ -95,50 +95,50 @@ public class Globals
     };
     
     
-    public static final String[] WEEKS = {
-        "Quit",
-        "Week 1 Problems",
-        "Week 2 Problems",
-        "Week 3 Problems",
-        "Week 4 Problems",
-        "Week 5 Problems",
-        "Week 6 Problems",
-        "Week 7 Problems",
-        "Week 8 Problems",
-        "Week 9 Problems",
-        "Week 10 Problems",
-        "Run all problems and solutions..."
-    };        
-    
-    
-    
 //    public static final String[] WEEKS = {
-//        "Week 1",
-//        "Week 2",
-//        "Week 3",
-//        "Week 4",
-//        "Week 5",
-//        "Week 6",
-//        "Week 7",
-//        "Week 8",
-//        "Week 9",
-//        "Week 10"        
-//    };  
+//        "Quit",
+//        "Week 1 Problems",
+//        "Week 2 Problems",
+//        "Week 3 Problems",
+//        "Week 4 Problems",
+//        "Week 5 Problems",
+//        "Week 6 Problems",
+//        "Week 7 Problems",
+//        "Week 8 Problems",
+//        "Week 9 Problems",
+//        "Week 10 Problems",
+//        "Run all problems and solutions..."
+//    };        
     
-//    public static final String[] LEVELS = {
-//        "Level 1",
-//        "Level 2",
-//        "Level 3",
-//        "Level 4"
-//    };
+    
+    
+    public static final String[] WEEKS = {
+        "Week 1",
+        "Week 2",
+        "Week 3",
+        "Week 4",
+        "Week 5",
+        "Week 6",
+        "Week 7",
+        "Week 8",
+        "Week 9",
+        "Week 10"        
+    };  
     
     public static final String[] LEVELS = {
-        "Quit",
-        "Level 1 Problem",
-        "Level 2 Problem",
-        "Level 3 Problem",
-        "Level 4 Problem"
-    };                
+        "Level 1",
+        "Level 2",
+        "Level 3",
+        "Level 4"
+    };
+    
+//    public static final String[] LEVELS = {
+//        "Quit",
+//        "Level 1 Problem",
+//        "Level 2 Problem",
+//        "Level 3 Problem",
+//        "Level 4 Problem"
+//    };                
     
     public static Problem[][] problems = {
         { 
@@ -264,8 +264,10 @@ public class Globals
             new Week10Level4Run() 
         }
     };
-    public static final String PROMPT_1 = "Choose a week for the problems...";
-    public static final String PROMPT_2 = "Choose a problem for this week...";
+    
+    public static final String PROMPT_1 = "Choose a year for the problems...";
+    public static final String PROMPT_2 = "Choose a week for the problems...";
+    public static final String PROMPT_3 = "Choose a problem for this week...";
     
     public static Display display = new Display();
     

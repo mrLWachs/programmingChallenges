@@ -8,18 +8,18 @@ public class MainClass
 
     public static void main(String[] args) {
         
-//        new UIView();
+        new UIView();
         
-        dialogs();
+//        dialogs();
         
     }
         
     private static void dialogs() {
         do {            
-            int week  = get(Globals.PROMPT_1,Globals.WEEKS);
+            int week  = get(Globals.PROMPT_2,Globals.WEEKS);
             if (week == Globals.WEEKS.length - 1) Globals.runAll();
             else {
-                int level = get(Globals.PROMPT_2,Globals.LEVELS);             
+                int level = get(Globals.PROMPT_3,Globals.LEVELS);             
                 if (Globals.choose(week, level)) Globals.input(week, level);
                 else                             Globals.run(week, level);
             }
