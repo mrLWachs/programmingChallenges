@@ -5,6 +5,10 @@ import challenge.week1.Week1Level1;
 import challenge.week1.Week1Level2;
 import challenge.week1.Week1Level3;
 import challenge.week1.Week1Level4;
+import challenge.week10.Week10Level1;
+import challenge.week10.Week10Level2;
+import challenge.week10.Week10Level3;
+import challenge.week10.Week10Level4;
 import challenge.week2.Week2Level1;
 import challenge.week2.Week2Level2;
 import challenge.week2.Week2Level3;
@@ -41,6 +45,10 @@ import data.week1.Week1Level1Run;
 import data.week1.Week1Level2Run;
 import data.week1.Week1Level3Run;
 import data.week1.Week1Level4Run;
+import data.week10.Week10Level1Run;
+import data.week10.Week10Level2Run;
+import data.week10.Week10Level3Run;
+import data.week10.Week10Level4Run;
 import data.week2.Week2Level1Run;
 import data.week2.Week2Level2Run;
 import data.week2.Week2Level3Run;
@@ -81,50 +89,56 @@ public class Globals
 
     public static final String TITLE = "Computer Science "
             + "Challenge Club (CSCC at CSHC)";
-//    public static final String[] WEEKS = {
-//        "Quit",
-//        "Week 1 Problems",
-//        "Week 2 Problems",
-//        "Week 3 Problems",
-//        "Week 4 Problems",
-//        "Week 5 Problems",
-//        "Week 6 Problems",
-//        "Week 7 Problems",
-//        "Week 8 Problems",
-//        "Week 9 Problems",
-//        "Run all problems and solutions..."
-//    };        
     
     public static final String[] YEARS = {
         "2019-2020"
     };
     
-    public static final String[] WEEKS = {
-        "Week 1",
-        "Week 2",
-        "Week 3",
-        "Week 4",
-        "Week 5",
-        "Week 6",
-        "Week 7",
-        "Week 8",
-        "Week 9"
-    };  
     
-    public static final String[] LEVELS = {
-        "Level 1",
-        "Level 2",
-        "Level 3",
-        "Level 4"
-    };
+    public static final String[] WEEKS = {
+        "Quit",
+        "Week 1 Problems",
+        "Week 2 Problems",
+        "Week 3 Problems",
+        "Week 4 Problems",
+        "Week 5 Problems",
+        "Week 6 Problems",
+        "Week 7 Problems",
+        "Week 8 Problems",
+        "Week 9 Problems",
+        "Week 10 Problems",
+        "Run all problems and solutions..."
+    };        
+    
+    
+    
+//    public static final String[] WEEKS = {
+//        "Week 1",
+//        "Week 2",
+//        "Week 3",
+//        "Week 4",
+//        "Week 5",
+//        "Week 6",
+//        "Week 7",
+//        "Week 8",
+//        "Week 9",
+//        "Week 10"        
+//    };  
     
 //    public static final String[] LEVELS = {
-//        "Quit",
-//        "Level 1 Problem",
-//        "Level 2 Problem",
-//        "Level 3 Problem",
-//        "Level 4 Problem"
-//    };                
+//        "Level 1",
+//        "Level 2",
+//        "Level 3",
+//        "Level 4"
+//    };
+    
+    public static final String[] LEVELS = {
+        "Quit",
+        "Level 1 Problem",
+        "Level 2 Problem",
+        "Level 3 Problem",
+        "Level 4 Problem"
+    };                
     
     public static Problem[][] problems = {
         { 
@@ -180,6 +194,12 @@ public class Globals
             new Week9Level2(),
             new Week9Level3(), 
             new Week9Level4() 
+        },
+        {  
+            new Week10Level1(), 
+            new Week10Level2(),
+            new Week10Level3(), 
+            new Week10Level4() 
         }
     };
     public static AutoRun[][] runs = {
@@ -236,6 +256,12 @@ public class Globals
             new Week9Level2Run(),          
             new Week9Level3Run(), 
             new Week9Level4Run() 
+        },
+        { 
+            new Week10Level1Run(), 
+            new Week10Level2Run(),          
+            new Week10Level3Run(), 
+            new Week10Level4Run() 
         }
     };
     public static final String PROMPT_1 = "Choose a week for the problems...";

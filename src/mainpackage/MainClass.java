@@ -8,9 +8,9 @@ public class MainClass
 
     public static void main(String[] args) {
         
-        new UIView();
+//        new UIView();
         
-        
+        dialogs();
         
     }
         
