@@ -13,7 +13,18 @@ public class Week10Level2 extends Problem
     }
     
     public void start() {        
-        Scanner input = new Scanner(System.in);      
+        Scanner input = new Scanner(System.in);  
+        String line = input.nextLine();
+        int dataSets = Integer.parseInt(line);
+        for (int dataSet = 0; dataSet < dataSets; dataSet++) {
+            line = input.nextLine();
+            int number = Integer.parseInt(line);
+            checkForNasty(number);
+        } 
+    }
+
+    private void checkForNasty(int number) {
+        
     }
 
 }
