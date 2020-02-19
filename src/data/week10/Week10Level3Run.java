@@ -113,9 +113,9 @@ public class Week10Level3Run  extends AutoRun
     }
 
     private boolean canPlay(Team team, Team opponent) {
-        if (opponent.chosen)                                 return false;
-        if (team.undefeated && opponent.losses     == 1) return false;
-        if (opponent.undefeated     && team.losses == 1) return false;
+        if (opponent.chosen)                             return false;
+        if (team.undefeated     && opponent.losses == 1) return false;
+        if (opponent.undefeated && team.losses     == 1) return false;
         return true;
     }
 
