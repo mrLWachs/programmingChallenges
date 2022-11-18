@@ -5,6 +5,7 @@ package mainpackage;
 import io.Defaults;
 import java.awt.Component;
 import java.awt.Container;
+import java.awt.Dimension;
 import java.net.URL;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -83,6 +84,11 @@ public class Display
                 "Outputs...", JOptionPane.PLAIN_MESSAGE);
     }
     
+    public void showDialog(String text, String title, int width, int height) { 
+        JOptionPane.showMessageDialog(null, getScrollArea(text, width, height), 
+                title, JOptionPane.PLAIN_MESSAGE);
+    }
+    
     private JScrollPane getScrollArea(String text) {
         JTextArea   area       = new JTextArea();
         JScrollPane scrollPane = new JScrollPane(area);
@@ -94,6 +100,22 @@ public class Display
         setBackgrounds(area);
         setBackgrounds(scrollPane);
         scrollPane.setPreferredSize(Defaults.DIALOG_DIMENSION);
+        scrollPane.setBorder(null);
+        return scrollPane;
+    }
+    
+    private JScrollPane getScrollArea(String text, int width, int height) {
+        JTextArea   area       = new JTextArea();
+        JScrollPane scrollPane = new JScrollPane(area);
+        area.setFont(Defaults.DIALOG_FONT);
+        area.setText(text);
+        area.setBorder(null);
+        area.setLineWrap(true);  
+        area.setWrapStyleWord(true); 
+        setBackgrounds(area);
+        setBackgrounds(scrollPane);
+        Dimension dimension = new Dimension(width, height);
+        scrollPane.setPreferredSize(dimension);
         scrollPane.setBorder(null);
         return scrollPane;
     }

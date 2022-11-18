@@ -134,7 +134,14 @@ public class UIController
     }
 
     public void runAllProblems() {
+        new Display().showDialog(
+                "This program will now show dialogs of all \n"
+              + "programming problems for each week. This \n"
+              + "will be automated and each dialog will \n"
+              + "automatically be displayed and disappear.\n"
+              + "","Run all Problems...",500,350);
         
+        UIModel.runAll();
     }
 
     public void windowClosing() {
