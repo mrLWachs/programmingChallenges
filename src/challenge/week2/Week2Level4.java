@@ -60,36 +60,36 @@ public class Week2Level4 extends Problem
     }
     
     private static void showGrid(char[][] grid, int generation) {
-        String text = "CASE " + generation + "\n";
-        for (int r = 0; r < grid.length; r++) {
-            for (int c = 0; c < grid[r].length; c++) {
-                text += grid[r][c] + "";
+        String text = "CASE " + generation + "\n";                              // Text variable to fill for output
+        for (int r = 0; r < grid.length; r++) {                                 // Traverse rows
+            for (int c = 0; c < grid[r].length; c++) {                          // Traverse columns
+                text += grid[r][c] + "";                                        // Concatinate cell to text
             }
-            text += "\n";
+            text += "\n";                                                       // Add line break at the end of the row
         }
-        System.out.println(text);
+        System.out.println(text);                                               // Output the text
     }
 
     private boolean isAlive(int row, int column, char[][] grid) {
-        final char ALIVE = 'X';
-        int size = grid.length;
-        if (row    < 0 || row    >= size) return false;
-        if (column < 0 || column >= size) return false;
-        if (grid[row][column] == ALIVE) return true;
-        return false;
+        final char ALIVE = 'X';                                                 // Mark a living spot
+        int size = grid.length;                                                 // The length of the grid
+        if (row    < 0 || row    >= size) return false;                         // Coordinates are beyond the rows (dead)
+        if (column < 0 || column >= size) return false;                         // Coordinates are beyond the columns (dead)
+        if (grid[row][column] == ALIVE)   return true;                          // Return that cell is living
+        return false;                                                           // Return that cell is dead
     }
 
     private int count(int row, int column, char[][] grid) {
-        int count = 0;
-        if (isAlive(row - 1, column - 1, grid)) count++;
-        if (isAlive(row    , column - 1, grid)) count++;
-        if (isAlive(row + 1, column - 1, grid)) count++;        
-        if (isAlive(row - 1, column    , grid)) count++;
-        if (isAlive(row + 1, column    , grid)) count++;        
-        if (isAlive(row - 1, column + 1, grid)) count++;
-        if (isAlive(row    , column + 1, grid)) count++;
-        if (isAlive(row + 1, column + 1, grid)) count++;        
-        return count;
+        int count = 0;                                                          // Keep count of living neighbors
+        if (isAlive(row - 1, column - 1, grid)) count++;                        // Row above column to the left is alive
+        if (isAlive(row    , column - 1, grid)) count++;                        // Same row column to the left is alive
+        if (isAlive(row + 1, column - 1, grid)) count++;                        // Row below column to the left is alive
+        if (isAlive(row - 1, column    , grid)) count++;                        // Row above same column is alive
+        if (isAlive(row + 1, column    , grid)) count++;                        // Row below same column is alive
+        if (isAlive(row - 1, column + 1, grid)) count++;                        // Row above to the right is alive
+        if (isAlive(row    , column + 1, grid)) count++;                        // Same row to the right is alive
+        if (isAlive(row + 1, column + 1, grid)) count++;                        // Row below column to the right is alive
+        return count;                                                           // Return the final count
     }
     
 }
