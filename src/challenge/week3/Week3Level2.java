@@ -7,24 +7,20 @@ import mainpackage.Problem;
 
 public class Week3Level2 extends Problem
 {
-        
-    static final String ENTER = "enter";
-    static final String SPACE = " ";    
-    static final String DASH  = "-";    
-    static final String DOT   = ".";   
+    
+    public static void main(String[] args) {
+        new Week3Level2().start();
+    }
+          
     static final String[][] GRID = {
         {"A","B","C","D","E","F"},
         {"G","H","I","J","K","L"},
         {"M","N","O","P","Q","R"},
         {"S","T","U","V","W","X"},
-        {"Y","Z",SPACE,DASH,DOT,ENTER}            
+        {"Y","Z"," ","-",".","enter"}            
     };
     static int currentRow    = 0;
     static int currentColumn = 0;
-
-    public static void main(String[] args) {
-        new Week3Level2().start();
-    }
     
     public void start() {
         Scanner input = new Scanner(System.in); 
@@ -40,15 +36,15 @@ public class Week3Level2 extends Problem
             String value = values[i];
             totalMoves += getMoves(value);            
         }
-        totalMoves += getMoves(ENTER);
+        totalMoves += getMoves("enter");
         System.out.println(totalMoves);        
     }
     
     private int getMoves(String value) {
         int foundRow      = findRow(value);
         int foundColumn   = findColumn(value);
-        int movesToRow    = findRowMoves(value,foundRow);
-        int movesToColumn = findColumnMoves(value,foundColumn);
+        int movesToRow    = findRowMoves(foundRow);
+        int movesToColumn = findColumnMoves(foundColumn);
         int totalMoves    = movesToRow + movesToColumn;
         currentRow        = foundRow;
         currentColumn     = foundColumn;
@@ -77,13 +73,13 @@ public class Week3Level2 extends Problem
         return 0;
     }
 
-    private int findRowMoves(String value, int foundRow) {
+    private int findRowMoves(int foundRow) {
         if (foundRow < currentRow)  return currentRow - foundRow;
         if (foundRow > currentRow)  return foundRow   - currentRow;
         return 0;
     }
 
-    private int findColumnMoves(String value, int foundColumn) {
+    private int findColumnMoves(int foundColumn) {
         if (foundColumn < currentColumn)  return currentColumn - foundColumn;
         if (foundColumn > currentColumn)  return foundColumn   - currentColumn;
         return 0;

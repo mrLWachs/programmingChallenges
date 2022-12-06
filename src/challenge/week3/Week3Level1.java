@@ -14,37 +14,37 @@ public class Week3Level1 extends Problem
     }
     
     public void start() {
-        Scanner input = new Scanner(System.in); 
-        String line = input.nextLine();
-        ArrayList<String> outputs = new ArrayList<>();
-        int index = 0;
-        while (!line.equals("0")) {
-            String message = "";
-            int i = 0;
-            boolean done = false;
-            while (i < line.length() && !done) {
-                char value = line.charAt(i);
-                if (Character.isDigit(value)) {
-                    if (value == '0') {
-                        outputs.add("Case #" + index + ": " + message);
-                        index++;
-                        done = true;
+        Scanner input = new Scanner(System.in);                                 // Instantiate scanner object
+        String line = input.nextLine();                                         // Read in the next full line of input
+        ArrayList<String> outputs = new ArrayList<>();                          // Instantiate array list for outputs
+        int index = 0;                                                          // Start an index count
+        while (!line.equals("0")) {                                             // Loop until a "0" is encountered
+            String message = "";                                                // Variable to add to the message
+            int i = 0;                                                          // Second index counter
+            boolean done = false;                                               // Flag to indicate when done
+            while (i < line.length() && !done) {                                // Traverse all characters in line (or a "0" is encountered)
+                char value = line.charAt(i);                                    // Read a character out of the line
+                if (Character.isDigit(value)) {                                 // Character is a digit
+                    if (value == '0') {                                         // The "0" is encountered
+                        outputs.add("Case #" + index + ": " + message);         // Add message to the list of outputs
+                        index++;                                                // Advance to next index
+                        done = true;                                            // Flag as done
                     }
-                    else {
-                        i += Integer.parseInt("" + value);
+                    else {                                                      // Another digit encountered
+                        i += Integer.parseInt("" + value);                      // Convert to integer and add to index "i"
                     }
                 }
-                if (!done) {
-                    char character = line.charAt(i);
-                    if (character == '_') character = ' ';
-                    message += character;
-                    i++;
+                if (!done) {                                                    // Not yet done with input
+                    char character = line.charAt(i);                            // Read a character out of the line
+                    if (character == '_') character = ' ';                      // Convert to space if "_" encountered
+                    message += character;                                       // Concatinate character to message
+                    i++;                                                        // Advance index "i" by one
                 }
             }
-            line = input.nextLine();
+            line = input.nextLine();                                            // Read in the next full line of input
         }
-        for (int i = 0; i < outputs.size(); i++) {
-            System.out.println(outputs.get(i));
+        for (int i = 0; i < outputs.size(); i++) {                              // Traverse outputs list
+            System.out.println(outputs.get(i));                                 // Output each list item
         }
     }
 
